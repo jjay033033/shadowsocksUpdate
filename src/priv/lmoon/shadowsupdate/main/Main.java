@@ -45,7 +45,7 @@ public class Main {
 	private static Process process = null;
 
 	public static void main(String[] args) {
-		// String uc = getURLContent("http://www.ishadowsocks.com");
+		// String uc = getURLContent("http://www.ishadowsocks.com/");
 		// confVo vo = getConf(uc);
 		// String json = buildContent(vo);
 		// System.out.println(json);
