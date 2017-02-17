@@ -23,7 +23,7 @@ import priv.lmoon.shadowsupdate.vo.ConfVo;
  */
 public class IshadowsocksConfigList implements ConfigList{
 	
-	private static final String FREE_URL = "http://www.ishadowsocks.com";
+	private static final String FREE_URL = "https://www.ishadowsocks.xyz";
 	private static final String beginStr = "<section id=\"free\">";
 	private static final String endStr = "</section>";
 
@@ -71,5 +71,9 @@ public class IshadowsocksConfigList implements ConfigList{
 
 		return list;
 	}
+	
+//	public static void main(String[] args) {
+//		System.out.println(new IshadowsocksConfigList().getConfigList().toString());
+//	}
 
 }
