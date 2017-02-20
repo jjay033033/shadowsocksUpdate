@@ -11,6 +11,7 @@ import java.net.URL;
 import org.apache.log4j.Logger;
 
 import priv.lmoon.shadowsupdate.config.IshadowsocksConfigList;
+import priv.lmoon.shadowsupdate.vo.ServerConfigVo;
 
 /**
  * @author guozy
@@ -21,7 +22,11 @@ public class UrlContent {
 	
 	private static final Logger logger = Logger.getLogger(UrlContent.class);
 	
-	public static String getURLContent(String urlStr,String beginStr,String endStr) {
+	public static String getURLContent(ServerConfigVo vo){
+		return getURLContent(vo.getUrl(), vo.getBegin(), vo.getEnd());
+	}
+	
+	private static String getURLContent(String urlStr,String beginStr,String endStr) {
 		InputStreamReader isr = null;
 		BufferedReader br = null;
 		StringBuffer sb = new StringBuffer();

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configs>
+
+	<server>
+		<id>ishadowsocks</id>
+		<url>https://www.ishadowsocks.xyz</url>
+		<begin>&lt;section id=&quot;free&quot;&gt;</begin>
+		<end>&lt;/section&gt;</end>
+	</server>
+
+	<server>
+		<id>shadowsocks8</id>
+		<url>https://www.shadowsocks8.biz/</url>
+		<begin>&lt;section id=&quot;free&quot;</begin>
+		<end>&lt;section id=&quot;sslist&quot;</end>
+	</server>
+
+</configs>

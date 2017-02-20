@@ -10,6 +10,7 @@ import org.apache.commons.lang.StringUtils;
 
 import priv.lmoon.shadowsupdate.util.UrlContent;
 import priv.lmoon.shadowsupdate.vo.ConfVo;
+import priv.lmoon.shadowsupdate.vo.ServerConfigVo;
 
 /**
  * @author guozy
@@ -18,9 +19,17 @@ import priv.lmoon.shadowsupdate.vo.ConfVo;
  */
 public class IshadowsocksConfigList implements ConfigList{
 	
-	private static final String FREE_URL = "https://www.ishadowsocks.xyz";
-	private static final String beginStr = "<section id=\"free\">";
-	private static final String endStr = "</section>";
+//	private static final String FREE_URL = "https://www.ishadowsocks.xyz";
+//	private static final String beginStr = "<section id=\"free\">";
+//	private static final String endStr = "</section>";
+	
+	private static final String id = "ishadowsocks";
+	
+	private static ServerConfigVo vo;
+
+	public IshadowsocksConfigList() {
+		vo = XmlConfig.getInstance().getServerConfigVo(id);
+	}
 
 	/* (non-Javadoc)
 	 * @see priv.lmoon.shadowsupdate.config.ConfigList#getConfigList()
@@ -28,7 +37,7 @@ public class IshadowsocksConfigList implements ConfigList{
 	@Override
 	public List<ConfVo> getConfigList() {
 		// TODO Auto-generated method stub
-		return getConf(UrlContent.getURLContent(FREE_URL, beginStr, endStr)) ;
+		return getConf(UrlContent.getURLContent(vo)) ;
 	}
 	
 	private List<ConfVo> getConf(String content) {

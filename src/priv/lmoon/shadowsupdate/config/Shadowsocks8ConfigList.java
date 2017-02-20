@@ -13,6 +13,7 @@ import priv.lmoon.shadows.QRCode.Base64Coder;
 import priv.lmoon.shadows.QRCode.QRcoder;
 import priv.lmoon.shadowsupdate.util.UrlContent;
 import priv.lmoon.shadowsupdate.vo.ConfVo;
+import priv.lmoon.shadowsupdate.vo.ServerConfigVo;
 
 /**
  * @author guozy
@@ -23,17 +24,25 @@ public class Shadowsocks8ConfigList implements ConfigList{
 	
 	private static final Logger logger = Logger.getLogger(Shadowsocks8ConfigList.class);
 	
-	private static final String FREE_URL = "https://www.shadowsocks8.biz/";
-	private static final String beginStr = "<section id=\"free\"";
-	private static final String endStr = "<section id=\"sslist\"";
+//	private static final String FREE_URL = "https://www.shadowsocks8.biz/";
+//	private static final String beginStr = "<section id=\"free\"";
+//	private static final String endStr = "<section id=\"sslist\"";
 
+	private static final String id = "shadowsocks8";
+	
+	private static ServerConfigVo vo;
+
+	public Shadowsocks8ConfigList() {
+		vo = XmlConfig.getInstance().getServerConfigVo(id);
+	}
+	
 	/* (non-Javadoc)
 	 * @see priv.lmoon.shadowsupdate.config.ConfigList#getConfigList()
 	 */
 	@Override
 	public List<ConfVo> getConfigList() {
 		// TODO Auto-generated method stub
-		return getConf(UrlContent.getURLContent(FREE_URL, beginStr, endStr));
+		return getConf(UrlContent.getURLContent(vo));
 	}
 	
 	private List<ConfVo> getConf(String content) {
@@ -71,7 +80,7 @@ public class Shadowsocks8ConfigList implements ConfigList{
 	}
 	
 	private static String getImgUrl(String str){
-		return str.startsWith(FREE_URL)?str:FREE_URL+str;
+		return str.startsWith(vo.getUrl())?str:vo.getUrl()+str;
 	}
 	
 	//rc4-md5:71973556@138.68.61.42:23456
@@ -96,7 +105,7 @@ public class Shadowsocks8ConfigList implements ConfigList{
 	}
 	
 	public static void main(String[] args) {
-		new Shadowsocks8ConfigList().getConfigList();
+		System.out.println(new Shadowsocks8ConfigList().getConfigList());
 	}
 
 }

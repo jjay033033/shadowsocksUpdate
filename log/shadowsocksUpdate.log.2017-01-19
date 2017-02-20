@@ -1,0 +1,144 @@
+2017-01-19 10:47:45,952 (Main.java:136) ERROR - restartExe:
+java.io.IOException: Cannot run program ""./Shadowsocks.exe"": CreateProcess error=2, ϵͳÕҲ»µ½ָ¶
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:460)
+	at java.lang.Runtime.exec(Runtime.java:593)
+	at java.lang.Runtime.exec(Runtime.java:431)
+	at java.lang.Runtime.exec(Runtime.java:328)
+	at priv.lmoon.shadowsupdate.main.Main.restartExe(Main.java:134)
+	at priv.lmoon.shadowsupdate.main.Main.main(Main.java:67)
+Caused by: java.io.IOException: CreateProcess error=2, ϵͳÕҲ»µ½ָ¶
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:81)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:30)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:453)
+	... 5 more
+2017-01-19 10:47:46,645 (Main.java:81) DEBUG - password changed!
+2017-01-19 10:47:48,193 (Main.java:136) ERROR - restartExe:
+java.io.IOException: Cannot run program ""./Shadowsocks.exe"": CreateProcess error=2, ϵͳÕҲ»µ½ָ¶
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:460)
+	at java.lang.Runtime.exec(Runtime.java:593)
+	at java.lang.Runtime.exec(Runtime.java:431)
+	at java.lang.Runtime.exec(Runtime.java:328)
+	at priv.lmoon.shadowsupdate.main.Main.restartExe(Main.java:134)
+	at priv.lmoon.shadowsupdate.main.Main.main(Main.java:85)
+Caused by: java.io.IOException: CreateProcess error=2, ϵͳÕҲ»µ½ָ¶
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:81)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:30)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:453)
+	... 5 more
+2017-01-19 10:49:13,628 (Main.java:136) ERROR - restartExe:
+java.io.IOException: Cannot run program ""./Shadowsocks.exe"": CreateProcess error=2, ϵͳÕҲ»µ½ָ¶
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:460)
+	at java.lang.Runtime.exec(Runtime.java:593)
+	at java.lang.Runtime.exec(Runtime.java:431)
+	at java.lang.Runtime.exec(Runtime.java:328)
+	at priv.lmoon.shadowsupdate.main.Main.restartExe(Main.java:134)
+	at priv.lmoon.shadowsupdate.main.Main.main(Main.java:67)
+Caused by: java.io.IOException: CreateProcess error=2, ϵͳÕҲ»µ½ָ¶
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:81)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:30)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:453)
+	... 5 more
+2017-01-19 10:49:14,191 (QRcoder.java:100) ERROR - decode:
+java.lang.NullPointerException
+	at priv.lmoon.shadows.QRCode.QRcoder$MyQRCodeImage.getWidth(QRcoder.java:137)
+	at jp.sourceforge.qrcode.QRCodeDecoder.imageToIntArray(QRCodeDecoder.java:167)
+	at jp.sourceforge.qrcode.QRCodeDecoder.decode(QRCodeDecoder.java:134)
+	at jp.sourceforge.qrcode.QRCodeDecoder.decode(QRCodeDecoder.java:68)
+	at priv.lmoon.shadows.QRCode.QRcoder.decode(QRcoder.java:96)
+	at priv.lmoon.shadowsupdate.config.Shadowsocks8ConfigList.getConf(Shadowsocks8ConfigList.java:56)
+	at priv.lmoon.shadowsupdate.config.Shadowsocks8ConfigList.getConfigList(Shadowsocks8ConfigList.java:36)
+	at priv.lmoon.shadowsupdate.main.Main.main(Main.java:72)
+2017-01-19 10:49:14,192 (Shadowsocks8ConfigList.java:64) ERROR - java.lang.NullPointerException
+2017-01-19 10:52:17,448 (Main.java:137) ERROR - restartExe:
+java.io.IOException: Cannot run program "Shadowsocks.exe": CreateProcess error=2, ϵͳÕҲ»µ½ָ¶
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:460)
+	at java.lang.Runtime.exec(Runtime.java:593)
+	at java.lang.Runtime.exec(Runtime.java:431)
+	at java.lang.Runtime.exec(Runtime.java:328)
+	at priv.lmoon.shadowsupdate.main.Main.restartExe(Main.java:135)
+	at priv.lmoon.shadowsupdate.main.Main.main(Main.java:67)
+Caused by: java.io.IOException: CreateProcess error=2, ϵͳÕҲ»µ½ָ¶
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:81)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:30)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:453)
+	... 5 more
+2017-01-19 10:52:18,089 (QRcoder.java:100) ERROR - decode:
+java.lang.NullPointerException
+	at priv.lmoon.shadows.QRCode.QRcoder$MyQRCodeImage.getWidth(QRcoder.java:137)
+	at jp.sourceforge.qrcode.QRCodeDecoder.imageToIntArray(QRCodeDecoder.java:167)
+	at jp.sourceforge.qrcode.QRCodeDecoder.decode(QRCodeDecoder.java:134)
+	at jp.sourceforge.qrcode.QRCodeDecoder.decode(QRCodeDecoder.java:68)
+	at priv.lmoon.shadows.QRCode.QRcoder.decode(QRcoder.java:96)
+	at priv.lmoon.shadowsupdate.config.Shadowsocks8ConfigList.getConf(Shadowsocks8ConfigList.java:56)
+	at priv.lmoon.shadowsupdate.config.Shadowsocks8ConfigList.getConfigList(Shadowsocks8ConfigList.java:36)
+	at priv.lmoon.shadowsupdate.main.Main.main(Main.java:72)
+2017-01-19 10:52:18,090 (Shadowsocks8ConfigList.java:64) ERROR - java.lang.NullPointerException
+2017-01-19 10:52:44,083 (Main.java:137) ERROR - restartExe:
+java.io.IOException: Cannot run program ""Shadowsocks.exe"": CreateProcess error=2, ϵͳÕҲ»µ½ָ¶
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:460)
+	at java.lang.Runtime.exec(Runtime.java:593)
+	at java.lang.Runtime.exec(Runtime.java:431)
+	at java.lang.Runtime.exec(Runtime.java:328)
+	at priv.lmoon.shadowsupdate.main.Main.restartExe(Main.java:135)
+	at priv.lmoon.shadowsupdate.main.Main.main(Main.java:67)
+Caused by: java.io.IOException: CreateProcess error=2, ϵͳÕҲ»µ½ָ¶
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:81)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:30)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:453)
+	... 5 more
+2017-01-19 10:52:44,621 (QRcoder.java:100) ERROR - decode:
+java.lang.NullPointerException
+	at priv.lmoon.shadows.QRCode.QRcoder$MyQRCodeImage.getWidth(QRcoder.java:137)
+	at jp.sourceforge.qrcode.QRCodeDecoder.imageToIntArray(QRCodeDecoder.java:167)
+	at jp.sourceforge.qrcode.QRCodeDecoder.decode(QRCodeDecoder.java:134)
+	at jp.sourceforge.qrcode.QRCodeDecoder.decode(QRCodeDecoder.java:68)
+	at priv.lmoon.shadows.QRCode.QRcoder.decode(QRcoder.java:96)
+	at priv.lmoon.shadowsupdate.config.Shadowsocks8ConfigList.getConf(Shadowsocks8ConfigList.java:56)
+	at priv.lmoon.shadowsupdate.config.Shadowsocks8ConfigList.getConfigList(Shadowsocks8ConfigList.java:36)
+	at priv.lmoon.shadowsupdate.main.Main.main(Main.java:72)
+2017-01-19 10:52:44,622 (Shadowsocks8ConfigList.java:64) ERROR - java.lang.NullPointerException
+2017-01-19 11:00:38,582 (QRcoder.java:100) ERROR - decode:
+java.lang.NullPointerException
+	at priv.lmoon.shadows.QRCode.QRcoder$MyQRCodeImage.getWidth(QRcoder.java:137)
+	at jp.sourceforge.qrcode.QRCodeDecoder.imageToIntArray(QRCodeDecoder.java:167)
+	at jp.sourceforge.qrcode.QRCodeDecoder.decode(QRCodeDecoder.java:134)
+	at jp.sourceforge.qrcode.QRCodeDecoder.decode(QRCodeDecoder.java:68)
+	at priv.lmoon.shadows.QRCode.QRcoder.decode(QRcoder.java:96)
+	at priv.lmoon.shadowsupdate.config.Shadowsocks8ConfigList.getConf(Shadowsocks8ConfigList.java:56)
+	at priv.lmoon.shadowsupdate.config.Shadowsocks8ConfigList.getConfigList(Shadowsocks8ConfigList.java:36)
+	at priv.lmoon.shadowsupdate.main.Main.main(Main.java:72)
+2017-01-19 11:00:38,584 (Shadowsocks8ConfigList.java:64) ERROR - java.lang.NullPointerException
+2017-01-19 11:03:25,386 (Main.java:136) ERROR - restartExe:
+java.io.IOException: Cannot run program ""./Shadowsocks.exe"": CreateProcess error=2, ϵͳÕҲ»µ½ָ¶
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:460)
+	at java.lang.Runtime.exec(Runtime.java:593)
+	at java.lang.Runtime.exec(Runtime.java:431)
+	at java.lang.Runtime.exec(Runtime.java:328)
+	at priv.lmoon.shadowsupdate.main.Main.restartExe(Main.java:134)
+	at priv.lmoon.shadowsupdate.main.Main.main(Main.java:67)
+Caused by: java.io.IOException: CreateProcess error=2, ϵͳÕҲ»µ½ָ¶
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:81)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:30)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:453)
+	... 5 more
+2017-01-19 11:04:16,422 (QRcoder.java:100) ERROR - decode:
+java.lang.NullPointerException
+	at priv.lmoon.shadows.QRCode.QRcoder$MyQRCodeImage.getWidth(QRcoder.java:137)
+	at jp.sourceforge.qrcode.QRCodeDecoder.imageToIntArray(QRCodeDecoder.java:167)
+	at jp.sourceforge.qrcode.QRCodeDecoder.decode(QRCodeDecoder.java:134)
+	at jp.sourceforge.qrcode.QRCodeDecoder.decode(QRCodeDecoder.java:68)
+	at priv.lmoon.shadows.QRCode.QRcoder.decode(QRcoder.java:96)
+	at priv.lmoon.shadowsupdate.config.Shadowsocks8ConfigList.getConf(Shadowsocks8ConfigList.java:56)
+	at priv.lmoon.shadowsupdate.config.Shadowsocks8ConfigList.getConfigList(Shadowsocks8ConfigList.java:36)
+	at priv.lmoon.shadowsupdate.config.Shadowsocks8ConfigList.main(Shadowsocks8ConfigList.java:95)
+2017-01-19 14:35:14,946 (Shadowsocks8ConfigList.java:64) ERROR - java.lang.StringIndexOutOfBoundsException: String index out of range: -10
+2017-01-19 14:38:05,743 (Shadowsocks8ConfigList.java:64) ERROR - java.lang.StringIndexOutOfBoundsException: String index out of range: -10
+2017-01-19 14:38:21,260 (Shadowsocks8ConfigList.java:64) ERROR - java.lang.StringIndexOutOfBoundsException: String index out of range: -10
+2017-01-19 14:40:12,744 (Shadowsocks8ConfigList.java:64) ERROR - java.lang.StringIndexOutOfBoundsException: String index out of range: -10
+2017-01-19 14:40:37,472 (Shadowsocks8ConfigList.java:65) ERROR - java.lang.StringIndexOutOfBoundsException: String index out of range: -10
