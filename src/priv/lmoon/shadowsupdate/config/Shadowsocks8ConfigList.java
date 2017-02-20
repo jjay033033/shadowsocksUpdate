@@ -23,7 +23,7 @@ public class Shadowsocks8ConfigList implements ConfigList{
 	
 	private static final Logger logger = Logger.getLogger(Shadowsocks8ConfigList.class);
 	
-	private static final String FREE_URL = "http://www.shadowsocks8.com/";
+	private static final String FREE_URL = "https://www.shadowsocks8.biz/";
 	private static final String beginStr = "<section id=\"free\"";
 	private static final String endStr = "<section id=\"sslist\"";
 

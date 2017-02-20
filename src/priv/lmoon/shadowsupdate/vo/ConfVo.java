@@ -51,5 +51,11 @@ public class ConfVo {
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
 	}
+
+	@Override
+	public String toString() {
+		return "ConfVo [server=" + server + ", server_port=" + server_port + ", password=" + password + ", method="
+				+ method + ", remarks=" + remarks + "]";
+	}
 	
 }
