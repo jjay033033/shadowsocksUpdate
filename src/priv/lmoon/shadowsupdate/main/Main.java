@@ -15,6 +15,7 @@ import java.util.Scanner;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -24,6 +25,10 @@ import priv.lmoon.shadowsupdate.config.Shadowsocks8ConfigList;
 import priv.lmoon.shadowsupdate.vo.ConfVo;
 
 public class Main {
+	
+	static{
+		PropertyConfigurator.configure(System.getProperty("user.dir") + "/res/log4j.properties"); 
+	}
 
 	private static final Logger logger = Logger.getLogger(Main.class);
 
@@ -45,6 +50,8 @@ public class Main {
 	private static Process process = null;
 
 	public static void main(String[] args) {
+		
+		
 		// String uc = getURLContent("http://www.ishadowsocks.com/");
 		// confVo vo = getConf(uc);
 		// String json = buildContent(vo);
