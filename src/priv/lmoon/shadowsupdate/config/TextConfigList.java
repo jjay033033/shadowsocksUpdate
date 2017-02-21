@@ -17,18 +17,18 @@ import priv.lmoon.shadowsupdate.vo.ServerConfigVo;
  * @date 2017-1-6
  * 
  */
-public class IshadowsocksConfigList implements ConfigList{
+public class TextConfigList implements ConfigList{
 	
 //	private static final String FREE_URL = "https://www.ishadowsocks.xyz";
 //	private static final String beginStr = "<section id=\"free\">";
 //	private static final String endStr = "</section>";
 	
-	private static final String id = "ishadowsocks";
+//	private static final String id = "ishadowsocks";
 	
-	private static ServerConfigVo vo;
+	public static ServerConfigVo vo;
 
-	public IshadowsocksConfigList() {
-		vo = XmlConfig.getInstance().getServerConfigVo(id);
+	public TextConfigList(ServerConfigVo vo) {
+		this.vo = vo;
 	}
 
 	/* (non-Javadoc)
@@ -76,8 +76,8 @@ public class IshadowsocksConfigList implements ConfigList{
 		return list;
 	}
 	
-	public static void main(String[] args) {
-		System.out.println(new IshadowsocksConfigList().getConfigList());
-	}
+//	public static void main(String[] args) {
+//		System.out.println(new TextConfigList("ishadowsocks").getConfigList());
+//	}
 
 }

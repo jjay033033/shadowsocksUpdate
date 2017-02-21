@@ -12,7 +12,7 @@ import priv.lmoon.shadowsupdate.vo.ConfVo;
  * @date 2017-1-6
  * 
  */
-interface ConfigList {
+public interface ConfigList {
 	
 	public abstract List<ConfVo> getConfigList();
 

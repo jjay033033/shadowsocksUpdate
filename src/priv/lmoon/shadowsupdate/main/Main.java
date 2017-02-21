@@ -6,7 +6,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -19,9 +18,10 @@ import org.apache.log4j.PropertyConfigurator;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-import priv.lmoon.shadows.QRCode.Base64Coder;
-import priv.lmoon.shadowsupdate.config.IshadowsocksConfigList;
-import priv.lmoon.shadowsupdate.config.Shadowsocks8ConfigList;
+import priv.lmoon.shadowsupdate.QRCode.Base64Coder;
+import priv.lmoon.shadowsupdate.config.ConfigList;
+import priv.lmoon.shadowsupdate.config.ConfigListFactory;
+import priv.lmoon.shadowsupdate.config.XmlConfig;
 import priv.lmoon.shadowsupdate.vo.ConfVo;
 
 public class Main {
@@ -39,8 +39,10 @@ public class Main {
 	private static final String EXE_PATH = HOME_PATH + EXE_NAME;
 	private static final String QRCODE_PATH = HOME_PATH + "QRCode/";
 	
-	private static IshadowsocksConfigList ishadowsocksConfigList = new IshadowsocksConfigList();
-	private static Shadowsocks8ConfigList shadowsocks8ConfigList = new Shadowsocks8ConfigList();
+	private static final String FIRST_SERVER = "firstServerId";
+	
+//	private static TextConfigList ishadowsocksConfigList = new TextConfigList();
+//	private static PicConfigList shadowsocks8ConfigList = new PicConfigList();
 
 	// private static final String PATH_NAME =
 	// "C:\\Users\\LMoon\\Downloads\\Shadowsocks-win-2.3.1\\gui-config.json";
@@ -73,13 +75,14 @@ public class Main {
 		}
 		restartExe(EXE_PATH);
 		try {
+			String firstServer = XmlConfig.getInstance().getValue(FIRST_SERVER);
 			while (true) {
-				List<ConfVo> list = null;
-				if(args.length>0 && "1".equals(args[0])){
-					list = shadowsocks8ConfigList.getConfigList();
-				}else{
-					list = ishadowsocksConfigList.getConfigList();
-				}
+				List<ConfVo> list = getConfList(firstServer);
+//				if(args.length>0 && "1".equals(args[0])){
+//					list = shadowsocks8ConfigList.getConfigList();
+//				}else{
+//					list = ishadowsocksConfigList.getConfigList();
+//				}
 				if (list != null && !list.isEmpty()) {
 					String newPw = list.get(0).getPassword();
 					if (StringUtils.isNotBlank(newPw)) {
@@ -112,6 +115,20 @@ public class Main {
 			logger.error("",e);
 		}
 
+	}
+	
+	private static List<ConfVo> getConfList(String firstServer){
+		List<ConfVo> list = null;	
+		ConfigList c; 
+		if(firstServer == null){
+			c = ConfigListFactory.getInstance().getFirstConfigList();		
+		}else{
+			c = ConfigListFactory.getInstance().getConfigListObj(firstServer);
+		}
+		if(c!=null){
+			list = c.getConfigList();
+		}
+		return list;
 	}
 
 	public static boolean checkExeHasDone(String exeName) {

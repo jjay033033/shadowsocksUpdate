@@ -1,8 +1,9 @@
 package priv.lmoon.shadowsupdate.config;
 
 import java.io.FileNotFoundException;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -19,7 +20,9 @@ public class XmlConfig {
 	
 	private static XmlConfig xmlConfig;
 	
-	private Map<String,ServerConfigVo> map = new HashMap<String, ServerConfigVo>();
+	private Map map;
+	
+	private Map<String,ServerConfigVo> serverMap = new LinkedHashMap<String, ServerConfigVo>();
 	
 	private XmlConfig(){
 		init();
@@ -28,11 +31,36 @@ public class XmlConfig {
 	private void init(){
 		try {
 			XmlMap xm = new XmlMap(path);
-			Map map = xm.getConfigMap();
+			map = xm.getConfigMap();
 			if (map == null || map.isEmpty()) {
 				throw new FileNotFoundException();
 			}
-			List items = (List) map.get("server");
+			initServerMap();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			logger.error("config.xml初始化失败:", e);
+		}
+		
+	}
+	
+	private void initServerMap(){
+		try {
+			Map servers = (Map) map.get("servers");
+			if (servers == null || servers.isEmpty()) {
+				throw new Exception("没有servers项！");
+			}
+			Object o = servers.get("server");
+			if(o == null){
+				throw new Exception("没有server项！");
+			}
+			List items = new ArrayList();
+			if(o instanceof List){
+				items = (List) o;
+			}else{
+				items.add((Map)o);
+			}
+			
 			if (items == null || items.isEmpty()) {
 				throw new Exception("没有server项！");
 			}
@@ -45,17 +73,15 @@ public class XmlConfig {
 					vo.setEnd((String) item.get("end"));
 					vo.setId((String) item.get("id"));
 					vo.setUrl((String) item.get("url"));
-					this.map.put((String)item.get("id"), vo);
+					this.serverMap.put((String)item.get("id"), vo);
 				}
 			}
-			
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			logger.error("config.xml初始化失败:", e);
+			logger.error("servers初始化失败:", e);
 		}
-		
 	}
 	
 	public static XmlConfig getInstance(){
@@ -66,11 +92,26 @@ public class XmlConfig {
 	}
 	
 	public ServerConfigVo getServerConfigVo(String id){
-		ServerConfigVo vo = map.get(id);
+		ServerConfigVo vo = serverMap.get(id);
 		if(vo == null){
 			vo = new ServerConfigVo();
 		}
 		return vo;
+	}
+	
+	public Map getMap(){
+		return map;
+	}
+	
+	public String getValue(String key){
+		if(map!=null){
+			return (String) map.get(key);
+		}
+		return null;
+	}
+	
+	public Map<String, ServerConfigVo> getServerConfigMap(){
+		return serverMap;
 	}
 
 }

@@ -9,8 +9,8 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
-import priv.lmoon.shadows.QRCode.Base64Coder;
-import priv.lmoon.shadows.QRCode.QRcoder;
+import priv.lmoon.shadowsupdate.QRCode.Base64Coder;
+import priv.lmoon.shadowsupdate.QRCode.QRcoder;
 import priv.lmoon.shadowsupdate.util.UrlContent;
 import priv.lmoon.shadowsupdate.vo.ConfVo;
 import priv.lmoon.shadowsupdate.vo.ServerConfigVo;
@@ -20,20 +20,20 @@ import priv.lmoon.shadowsupdate.vo.ServerConfigVo;
  * @date 2017-1-6
  * 
  */
-public class Shadowsocks8ConfigList implements ConfigList{
+public class PicConfigList implements ConfigList{
 	
-	private static final Logger logger = Logger.getLogger(Shadowsocks8ConfigList.class);
+	private static final Logger logger = Logger.getLogger(PicConfigList.class);
 	
 //	private static final String FREE_URL = "https://www.shadowsocks8.biz/";
 //	private static final String beginStr = "<section id=\"free\"";
 //	private static final String endStr = "<section id=\"sslist\"";
 
-	private static final String id = "shadowsocks8";
+//	public String id = "shadowsocks8";
 	
-	private static ServerConfigVo vo;
+	private ServerConfigVo vo;
 
-	public Shadowsocks8ConfigList() {
-		vo = XmlConfig.getInstance().getServerConfigVo(id);
+	public PicConfigList(ServerConfigVo vo) {
+		this.vo = vo;
 	}
 	
 	/* (non-Javadoc)
@@ -79,7 +79,7 @@ public class Shadowsocks8ConfigList implements ConfigList{
 		return list;
 	}
 	
-	private static String getImgUrl(String str){
+	private String getImgUrl(String str){
 		return str.startsWith(vo.getUrl())?str:vo.getUrl()+str;
 	}
 	
@@ -104,8 +104,8 @@ public class Shadowsocks8ConfigList implements ConfigList{
 		return null;
 	}
 	
-	public static void main(String[] args) {
-		System.out.println(new Shadowsocks8ConfigList().getConfigList());
-	}
+//	public static void main(String[] args) {
+//		System.out.println(new PicConfigList("shadowsocks8").getConfigList());
+//	}
 
 }

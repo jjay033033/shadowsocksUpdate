@@ -9,6 +9,8 @@ public class ServerConfigVo {
 	private String begin;
 	
 	private String end;
+	
+	private int type;
 
 	public String getId() {
 		return id;
@@ -42,9 +44,19 @@ public class ServerConfigVo {
 		this.end = end;
 	}
 
-	@Override
-	public String toString() {
-		return "ServerConfigVo [id=" + id + ", url=" + url + ", begin=" + begin + ", end=" + end + "]";
+	public int getType() {
+		return type;
 	}
 
+	public void setType(int type) {
+		this.type = type;
+	}
+
+	@Override
+	public String toString() {
+		return "ServerConfigVo [id=" + id + ", url=" + url + ", begin=" + begin + ", end=" + end + ", type=" + type
+				+ "]";
+	}
+
+	
 }

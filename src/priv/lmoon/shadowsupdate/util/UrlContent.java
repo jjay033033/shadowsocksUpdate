@@ -10,7 +10,7 @@ import java.net.URL;
 
 import org.apache.log4j.Logger;
 
-import priv.lmoon.shadowsupdate.config.IshadowsocksConfigList;
+import priv.lmoon.shadowsupdate.config.TextConfigList;
 import priv.lmoon.shadowsupdate.vo.ServerConfigVo;
 
 /**

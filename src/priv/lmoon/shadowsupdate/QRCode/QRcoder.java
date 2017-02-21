@@ -1,4 +1,4 @@
-package priv.lmoon.shadows.QRCode;
+package priv.lmoon.shadowsupdate.QRCode;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
