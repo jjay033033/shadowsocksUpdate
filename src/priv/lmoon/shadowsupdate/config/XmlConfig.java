@@ -54,10 +54,11 @@ public class XmlConfig {
 			if(o == null){
 				throw new Exception("没有server项！");
 			}
-			List items = new ArrayList();
+			List items;
 			if(o instanceof List){
 				items = (List) o;
 			}else{
+				items = new ArrayList();
 				items.add((Map)o);
 			}
 			
@@ -73,6 +74,7 @@ public class XmlConfig {
 					vo.setEnd((String) item.get("end"));
 					vo.setId((String) item.get("id"));
 					vo.setUrl((String) item.get("url"));
+					vo.setType(Integer.parseInt((String) item.get("type")));
 					this.serverMap.put((String)item.get("id"), vo);
 				}
 			}

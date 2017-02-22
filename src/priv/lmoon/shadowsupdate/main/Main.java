@@ -32,7 +32,7 @@ public class Main {
 
 	private static final Logger logger = Logger.getLogger(Main.class);
 
-	private static final String HOME_PATH = "./";
+	private static final String HOME_PATH = "res/";
 	
 	private static final String PATH_NAME = HOME_PATH + "gui-config.json";
 	private static final String EXE_NAME = "Shadowsocks.exe";
@@ -112,6 +112,7 @@ public class Main {
 				}
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("",e);
 		}
 
