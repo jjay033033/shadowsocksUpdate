@@ -56,5 +56,9 @@ public class ConfigListFactory {
 	public ConfigList getFirstConfigList(){
 		return firstConfigList;
 	}
+	
+	public Map<String,ConfigList> getConfigListMap(){
+		return configMap;
+	}
 
 }

@@ -7,9 +7,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 
 import org.apache.commons.lang.StringUtils;
@@ -128,6 +130,18 @@ public class Main {
 		}
 		if(c!=null){
 			list = c.getConfigList();
+		}
+		if(list==null||list.isEmpty()){
+			Map<String, ConfigList> cMap = ConfigListFactory.getInstance().getConfigListMap();
+			for(Iterator<Entry<String, ConfigList>> it=cMap.entrySet().iterator();it.hasNext();){
+				c = it.next().getValue();
+				if(c!=null){
+					list = c.getConfigList();
+					if(list!=null&&!list.isEmpty()){
+						return list;
+					}
+				}
+			}
 		}
 		return list;
 	}
