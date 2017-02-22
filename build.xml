@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="copyfiles" name="shadowsocks_update">
+
+	<property name="classes.dir" value="bin">
+	</property>
+	<property name="src.dir" value="src">
+	</property>
+	<property name="conf.dir" value="res">
+	</property>
+	<property name="lib.dir" value="lib">
+	</property>
+	<property name="dist.dir" value="output">
+	</property>
+
+	<path id="classpath">
+		<pathelement location="." />
+		<fileset dir="${lib.dir}" includes="*.jar" />
+	</path>
+
+	<target name="build.jar">
+		<pathconvert property="mf.classpath" pathsep=" ">
+			<mapper>
+				<chainedmapper>
+					<!-- remove absolute path -->
+					<flattenmapper />
+					<!-- add lib/ prefix -->
+					<globmapper from ="*" to="lib/*"/>
+				</chainedmapper>
+			</mapper>
+			<path refid="classpath" />
+		</pathconvert>
+		<jar jarfile="${dist.dir}/shadowsocksUpdate.jar" encoding="UTF-8">
+			<fileset dir="${classes.dir}" includes="**/*.class">
+			</fileset>
+			<manifest>
+				<attribute name="Main-class" value="priv.lmoon.shadowsupdate.main.Main" />
+				<attribute name="Class-Path" value="${mf.classpath}" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="copyfiles" depends="build.jar">
+		<copy todir="${dist.dir}/${lib.dir}">
+			<fileset dir="${lib.dir}" />
+		</copy>
+		<copy todir="${dist.dir}/${conf.dir}">
+			<fileset dir="${conf.dir}" />
+		</copy>
+		<move file="${dist.dir}/${conf.dir}/start.bat" todir="${dist.dir}"/>
+	</target>
+
+</project>
