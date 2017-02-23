@@ -1,7 +1,5 @@
 package priv.lmoon.shadowsupdate.main;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -14,7 +12,7 @@ import org.apache.log4j.PropertyConfigurator;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-import priv.lmoon.shadowsupdate.QRCode.Base64Coder;
+import priv.lmoon.shadowsupdate.QRCode.QRcodeUtil;
 import priv.lmoon.shadowsupdate.config.ConfigList;
 import priv.lmoon.shadowsupdate.config.ConfigListFactory;
 import priv.lmoon.shadowsupdate.config.XmlConfig;
@@ -37,7 +35,7 @@ public class Main {
 	private static final String EXE_PATH = HOME_PATH + EXE_NAME;
 	private static final String QRCODE_PATH = HOME_PATH + "QRCode/";
 	
-	private static final long SLEEP_TIME = 5 * 60 * 1000L;
+	private static final String SLEEP_TIME = "sleepTime";
 	
 	private static final String FIRST_SERVER = "firstServerId";
 
@@ -47,10 +45,11 @@ public class Main {
 		if (WinCmdUtil.checkExeHasDone(EXE_NAME)) {
 			logger.info("已运行" + EXE_NAME);
 			return;
-		}
-		WinCmdUtil.restartExe(EXE_PATH);
+		}	
 		try {
 			String firstServer = XmlConfig.getInstance().getValue(FIRST_SERVER);
+			long sleepTime = Long.parseLong(XmlConfig.getInstance().getValue(SLEEP_TIME));
+			WinCmdUtil.restartExe(EXE_PATH);
 			while (true) {
 				List<ConfVo> list = getConfList(firstServer);
 
@@ -62,7 +61,7 @@ public class Main {
 							logger.debug("password changed!");
 							String content = buildContent(list);
 							FileUtil.writeFile(content, PATH_NAME);
-							createQRCode(list);
+							QRcodeUtil.createQRCode(list,QRCODE_PATH);
 							WinCmdUtil.restartExe(EXE_PATH);
 						} else {
 							logger.debug("password ok!");
@@ -73,7 +72,7 @@ public class Main {
 					break;
 				}
 				try {
-					Thread.sleep(SLEEP_TIME);
+					Thread.sleep(sleepTime);
 				} catch (InterruptedException e) {
 				}
 			}
@@ -110,8 +109,6 @@ public class Main {
 		return list;
 	}
 
-	
-	
 
 	public static String buildContent(List<ConfVo> list) {
 		Map<String, Object> map = new LinkedHashMap<String, Object>();
@@ -154,34 +151,6 @@ public class Main {
 
 	
 
-	public static void createQRCode(List<ConfVo> list) {
-		List<String> strList = confStr4QRCode(list);
-		for (int i = 0; i < strList.size(); i++) {
-			try {
-				File file = new File(QRCODE_PATH);
-				if(!file.isDirectory()){
-					file.mkdir();
-				}
-				Base64Coder.createQRCodePic4Base64(strList.get(i), QRCODE_PATH
-						+ list.get(i).getServer() + ".jpg");
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				logger.error("create QRCode:", e);
-			}
-		}
-	}
-
-	public static List<String> confStr4QRCode(List<ConfVo> list) {
-		List<String> rList = new ArrayList<String>();
-		for (ConfVo vo : list) {
-			StringBuffer sb = new StringBuffer();
-			sb.append(vo.getMethod()).append(":").append(vo.getPassword())
-					.append("@").append(vo.getServer()).append(":")
-					.append(vo.getServer_port());
-			rList.add(sb.toString());
-		}
-		return rList;
-	}
+	
 
 }
