@@ -3,6 +3,8 @@
 
 	<firstServerId>shadowsocks8</firstServerId>
 
+	<sleepTime>300000</sleepTime>
+
 	<servers>
 		<server>
 			<id>ishadowsocks</id>
