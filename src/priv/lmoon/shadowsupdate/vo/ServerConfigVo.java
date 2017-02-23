@@ -11,6 +11,81 @@ public class ServerConfigVo {
 	private String end;
 	
 	private int type;
+	
+	private String serverIpBegin;
+	private String serverIpEnd;
+	private String passwordBegin;
+	private String passwordEnd;
+	private String encryptionBegin;
+	private String encryptionEnd;
+	private String serverPortBegin;
+	private String serverPortEnd;
+	
+	
+
+	public String getServerIpBegin() {
+		return serverIpBegin;
+	}
+
+	public void setServerIpBegin(String serverIpBegin) {
+		this.serverIpBegin = serverIpBegin;
+	}
+
+	public String getServerIpEnd() {
+		return serverIpEnd;
+	}
+
+	public void setServerIpEnd(String serverIpEnd) {
+		this.serverIpEnd = serverIpEnd;
+	}
+
+	public String getPasswordBegin() {
+		return passwordBegin;
+	}
+
+	public void setPasswordBegin(String passwordBegin) {
+		this.passwordBegin = passwordBegin;
+	}
+
+	public String getPasswordEnd() {
+		return passwordEnd;
+	}
+
+	public void setPasswordEnd(String passwordEnd) {
+		this.passwordEnd = passwordEnd;
+	}
+
+	public String getEncryptionBegin() {
+		return encryptionBegin;
+	}
+
+	public void setEncryptionBegin(String encryptionBegin) {
+		this.encryptionBegin = encryptionBegin;
+	}
+
+	public String getEncryptionEnd() {
+		return encryptionEnd;
+	}
+
+	public void setEncryptionEnd(String encryptionEnd) {
+		this.encryptionEnd = encryptionEnd;
+	}
+
+	public String getServerPortBegin() {
+		return serverPortBegin;
+	}
+
+	public void setServerPortBegin(String serverPortBegin) {
+		this.serverPortBegin = serverPortBegin;
+	}
+
+	public String getServerPortEnd() {
+		return serverPortEnd;
+	}
+
+	public void setServerPortEnd(String serverPortEnd) {
+		this.serverPortEnd = serverPortEnd;
+	}
 
 	public String getId() {
 		return id;
@@ -55,7 +130,10 @@ public class ServerConfigVo {
 	@Override
 	public String toString() {
 		return "ServerConfigVo [id=" + id + ", url=" + url + ", begin=" + begin + ", end=" + end + ", type=" + type
-				+ "]";
+				+ ", serverIpBegin=" + serverIpBegin + ", serverIpEnd=" + serverIpEnd + ", passwordBegin="
+				+ passwordBegin + ", passwordEnd=" + passwordEnd + ", encryptionBegin=" + encryptionBegin
+				+ ", encryptionEnd=" + encryptionEnd + ", serverPortBegin=" + serverPortBegin + ", serverPortEnd="
+				+ serverPortEnd + "]";
 	}
 
 	

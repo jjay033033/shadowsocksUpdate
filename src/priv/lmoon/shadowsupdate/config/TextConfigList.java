@@ -25,8 +25,8 @@ public class TextConfigList implements ConfigList{
 	
 //	private static final String id = "ishadowsocks";
 	
-	public static ServerConfigVo vo;
-
+	private ServerConfigVo vo;
+	
 	public TextConfigList(ServerConfigVo vo) {
 		this.vo = vo;
 	}
@@ -46,31 +46,31 @@ public class TextConfigList implements ConfigList{
 			return list;
 		}
 		for (int i = 0; i < 3; i++) {
-			ConfVo vo = new ConfVo();
-			int serverIpIdx = content.indexOf("服务器地址:") + 6;
-			int serverIpEnd = content.indexOf("<", serverIpIdx);
+			ConfVo confVo = new ConfVo();
+			int serverIpIdx = content.indexOf(vo.getServerIpBegin()) + vo.getServerIpBegin().length();
+			int serverIpEndIds = content.indexOf(vo.getServerIpEnd(), serverIpIdx);
 
 			if (serverIpIdx == -1) {
 				break;
 			}
 
-			int serverPortIdx = content.indexOf("端口:") + 3;
-			int serverPortEnd = content.indexOf("<", serverPortIdx);
+			int serverPortIdx = content.indexOf(vo.getServerPortBegin()) + vo.getServerPortBegin().length();
+			int serverPortEndIdx = content.indexOf(vo.getServerPortEnd(), serverPortIdx);
 
-			int passwordIdx = content.indexOf("密码:") + 3;
-			int passwordEnd = content.indexOf("<", passwordIdx);
+			int passwordIdx = content.indexOf(vo.getPasswordBegin()) + vo.getPasswordBegin().length();
+			int passwordEndIdx = content.indexOf(vo.getPasswordEnd(), passwordIdx);
 
-			int encryptionIdx = content.indexOf("加密方式:") + 5;
-			int encryptionEnd = content.indexOf("<", encryptionIdx);
+			int encryptionIdx = content.indexOf(vo.getEncryptionBegin()) + vo.getEncryptionBegin().length();
+			int encryptionEndIdx = content.indexOf(vo.getEncryptionEnd(), encryptionIdx);
 
-			vo.setServer(content.substring(serverIpIdx, serverIpEnd));
-			vo.setServer_port(Integer.parseInt(content.substring(serverPortIdx,
-					serverPortEnd)));
-			vo.setPassword(content.substring(passwordIdx, passwordEnd));
-			vo.setMethod(content.substring(encryptionIdx, encryptionEnd));
+			confVo.setServer(content.substring(serverIpIdx, serverIpEndIds));
+			confVo.setServer_port(Integer.parseInt(content.substring(serverPortIdx,
+					serverPortEndIdx)));
+			confVo.setPassword(content.substring(passwordIdx, passwordEndIdx));
+			confVo.setMethod(content.substring(encryptionIdx, encryptionEndIdx));
 
-			list.add(vo);
-			content = content.substring(encryptionEnd);
+			list.add(confVo);
+			content = content.substring(encryptionEndIdx);
 		}
 
 		return list;

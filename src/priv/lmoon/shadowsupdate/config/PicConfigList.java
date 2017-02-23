@@ -60,8 +60,6 @@ public class PicConfigList implements ConfigList{
 				
 				int serverIdx = findIdx + 10;
 				int serverEnd = content.indexOf("\"", serverIdx);
-
-				
 				
 				String serverStr = content.substring(serverIdx, serverEnd);
 				if(serverStr.contains("server")){

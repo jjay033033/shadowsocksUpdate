@@ -93,13 +93,13 @@ public class XmlConfig {
 		return xmlConfig;
 	}
 	
-	public ServerConfigVo getServerConfigVo(String id){
-		ServerConfigVo vo = serverMap.get(id);
-		if(vo == null){
-			vo = new ServerConfigVo();
-		}
-		return vo;
-	}
+//	public ServerConfigVo getServerConfigVo(String id){
+//		ServerConfigVo vo = serverMap.get(id);
+//		if(vo == null){
+//			vo = new ServerConfigVo();
+//		}
+//		return vo;
+//	}
 	
 	public Map getMap(){
 		return map;

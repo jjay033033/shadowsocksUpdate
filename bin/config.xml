@@ -12,6 +12,14 @@
 			<begin>&lt;section id=&quot;free&quot;&gt;</begin>
 			<end>&lt;/section&gt;</end>
 			<type>0</type>
+			<serverIpBegin>服务器地址:</serverIpBegin>
+			<serverIpEnd>&lt;</serverIpEnd>
+			<serverPortBegin>端口:</serverPortBegin>
+			<serverPortEnd>&lt;</serverPortEnd>
+			<passwordBegin>密码:</passwordBegin>
+			<passwordEnd>&lt;</passwordEnd>
+			<encryptionBegin>加密方式:</encryptionBegin>
+			<encryptionEnd>&lt;</encryptionEnd>			
 		</server>	
 		<server>
 			<id>shadowsocks8</id>
