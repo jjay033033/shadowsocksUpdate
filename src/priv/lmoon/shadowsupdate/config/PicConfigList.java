@@ -82,18 +82,19 @@ public class PicConfigList implements ConfigList{
 	}
 	
 	//rc4-md5:71973556@138.68.61.42:23456
-	private static ConfVo getConfFromStr(String str){
+	private ConfVo getConfFromStr(String str){
 		try{
 			String[] strs = str.split(":");
 			if(strs.length==3){
 				String[] temp = strs[1].split("@");
 				if(temp.length==2){
-					ConfVo vo = new ConfVo();
-					vo.setMethod(strs[0].trim());
-					vo.setPassword(temp[0].trim());
-					vo.setServer(temp[1].trim());
-					vo.setServer_port(Integer.parseInt(strs[2].trim()));
-					return vo;
+					ConfVo confVo = new ConfVo();
+					confVo.setMethod(strs[0].trim());
+					confVo.setPassword(temp[0].trim());
+					confVo.setServer(temp[1].trim());
+					confVo.setServer_port(Integer.parseInt(strs[2].trim()));
+					confVo.setRemarks(vo.getId());
+					return confVo;
 				}
 			}
 		}catch(Exception e){

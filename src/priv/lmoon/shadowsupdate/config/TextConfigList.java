@@ -68,6 +68,7 @@ public class TextConfigList implements ConfigList{
 					serverPortEndIdx)));
 			confVo.setPassword(content.substring(passwordIdx, passwordEndIdx));
 			confVo.setMethod(content.substring(encryptionIdx, encryptionEndIdx));
+			confVo.setRemarks(vo.getId());
 
 			list.add(confVo);
 			content = content.substring(encryptionEndIdx);
