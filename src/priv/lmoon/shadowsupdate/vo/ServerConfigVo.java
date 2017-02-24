@@ -12,6 +12,7 @@ public class ServerConfigVo {
 	
 	private int type;
 	
+	//TextServer参数
 	private String serverIpBegin;
 	private String serverIpEnd;
 	private String passwordBegin;
@@ -21,7 +22,35 @@ public class ServerConfigVo {
 	private String serverPortBegin;
 	private String serverPortEnd;
 	
+	//PicServer参数
+	private String picUrlBegin;
+	private String picUrlEnd;
+	private String severPicFlag;
 	
+
+	public String getPicUrlBegin() {
+		return picUrlBegin;
+	}
+
+	public void setPicUrlBegin(String picUrlBegin) {
+		this.picUrlBegin = picUrlBegin;
+	}
+
+	public String getPicUrlEnd() {
+		return picUrlEnd;
+	}
+
+	public void setPicUrlEnd(String picUrlEnd) {
+		this.picUrlEnd = picUrlEnd;
+	}
+
+	public String getSeverPicFlag() {
+		return severPicFlag;
+	}
+
+	public void setSeverPicFlag(String severPicFlag) {
+		this.severPicFlag = severPicFlag;
+	}
 
 	public String getServerIpBegin() {
 		return serverIpBegin;
@@ -133,7 +162,8 @@ public class ServerConfigVo {
 				+ ", serverIpBegin=" + serverIpBegin + ", serverIpEnd=" + serverIpEnd + ", passwordBegin="
 				+ passwordBegin + ", passwordEnd=" + passwordEnd + ", encryptionBegin=" + encryptionBegin
 				+ ", encryptionEnd=" + encryptionEnd + ", serverPortBegin=" + serverPortBegin + ", serverPortEnd="
-				+ serverPortEnd + "]";
+				+ serverPortEnd + ", picUrlBegin=" + picUrlBegin + ", picUrlEnd=" + picUrlEnd + ", severPicFlag="
+				+ severPicFlag + "]";
 	}
 
 	

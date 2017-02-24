@@ -52,17 +52,17 @@ public class PicConfigList implements ConfigList{
 		}
 		try{
 			while(content.length()>0) {
-				int findIdx = content.indexOf("<img src=\"");
+				int findIdx = content.indexOf(vo.getPicUrlBegin());
 				
 				if (findIdx == -1) {
 					break;
 				}
 				
-				int serverIdx = findIdx + 10;
-				int serverEnd = content.indexOf("\"", serverIdx);
+				int serverIdx = findIdx + vo.getPicUrlBegin().length();
+				int serverEnd = content.indexOf(vo.getPicUrlEnd(), serverIdx);
 				
 				String serverStr = content.substring(serverIdx, serverEnd);
-				if(serverStr.contains("server")){
+				if(serverStr.contains(vo.getSeverPicFlag())){
 					ConfVo vo = getConfFromStr(Base64Coder.decodeBase64ForSS(QRcoder.decode(getImgUrl(serverStr.trim()))));
 					if(vo!=null){
 						list.add(vo);

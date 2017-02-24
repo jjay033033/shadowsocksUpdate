@@ -8,7 +8,7 @@
 	<servers>
 		<server>
 			<id>ishadowsocks</id>
-			<url>https://www.ishadowsocks.xyz</url>
+			<url>http://isx.yt</url>
 			<begin>&lt;section id=&quot;free&quot;&gt;</begin>
 			<end>&lt;/section&gt;</end>
 			<type>0</type>
@@ -27,6 +27,9 @@
 			<begin>&lt;section id=&quot;free&quot;</begin>
 			<end>&lt;section id=&quot;sslist&quot;</end>
 			<type>1</type>
+			<picUrlBegin>&lt;img src=&quot;</picUrlBegin>
+			<picUrlEnd>&quot;</picUrlEnd>
+			<severPicFlag>server</severPicFlag>			
 		</server>
 	</servers>
 	

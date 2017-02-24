@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
+import priv.lmoon.shadowsupdate.SysConstants;
 import priv.lmoon.shadowsupdate.util.XmlMap;
 import priv.lmoon.shadowsupdate.vo.ServerConfigVo;
 
@@ -75,6 +76,20 @@ public class XmlConfig {
 					vo.setId((String) item.get("id"));
 					vo.setUrl((String) item.get("url"));
 					vo.setType(Integer.parseInt((String) item.get("type")));
+					if(vo.getType()==SysConstants.ServerType.TEXT){
+						vo.setServerIpBegin((String) item.get("serverIpBegin"));
+						vo.setServerIpEnd((String) item.get("serverIpEnd"));
+						vo.setServerPortBegin((String) item.get("serverPortBegin"));
+						vo.setServerPortEnd((String) item.get("serverPortEnd"));
+						vo.setPasswordBegin((String) item.get("passwordBegin"));
+						vo.setPasswordEnd((String) item.get("passwordEnd"));
+						vo.setEncryptionBegin((String) item.get("encryptionBegin"));
+						vo.setEncryptionEnd((String) item.get("encryptionEnd"));
+					}else if(vo.getType()==SysConstants.ServerType.PIC){
+						vo.setPicUrlBegin((String) item.get("picUrlBegin"));
+						vo.setPicUrlEnd((String) item.get("picUrlEnd"));
+						vo.setSeverPicFlag((String) item.get("severPicFlag"));
+					}
 					this.serverMap.put((String)item.get("id"), vo);
 				}
 			}
