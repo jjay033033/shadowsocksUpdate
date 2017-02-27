@@ -1,3 +1,3 @@
 # shadowsocksUpdate
 shadowsocksUpdate
-适用于jdk1.7环境。
+适用于>= jdk1.7环境。
