@@ -46,6 +46,7 @@ public class TextConfigList implements ConfigList {
 	}
 
 	private List<ConfVo> getConf(String content) {
+//		System.out.println(content);
 		List<ConfVo> list = new ArrayList<ConfVo>();
 		if (StringUtils.isBlank(content)) {
 			return list;
