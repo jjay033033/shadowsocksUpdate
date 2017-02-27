@@ -116,10 +116,19 @@ public class XmlConfig {
 //		return vo;
 //	}
 	
+	/**
+	 * 整个xml文件的map
+	 * @return
+	 */
 	public Map getMap(){
 		return map;
 	}
 	
+	/**
+	 * 整个xml文件map根据key取value
+	 * @param key
+	 * @return
+	 */
 	public String getValue(String key){
 		if(map!=null){
 			return (String) map.get(key);
@@ -127,6 +136,10 @@ public class XmlConfig {
 		return null;
 	}
 	
+	/**
+	 * 服务器配置（servers标签下）的map
+	 * @return
+	 */
 	public Map<String, ServerConfigVo> getServerConfigMap(){
 		return serverMap;
 	}

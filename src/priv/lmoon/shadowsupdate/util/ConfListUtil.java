@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import priv.lmoon.shadowsupdate.config.XmlConfig;
 import priv.lmoon.shadowsupdate.vo.ConfVo;
 
 public class ConfListUtil {
@@ -29,7 +30,9 @@ public class ConfListUtil {
 			for (ConfVo oVo : oldList) {
 				Map<String, ConfVo> map = nMap.get(oVo.getRemarks());
 				if (map == null) {
-					newList.add(oVo);
+					if(XmlConfig.getInstance().getServerConfigMap().containsKey(oVo.getRemarks())){
+						newList.add(oVo);
+					}
 				} else {
 					ConfVo nVo = map.get(oVo.getServer());
 					if (nVo == null) {
