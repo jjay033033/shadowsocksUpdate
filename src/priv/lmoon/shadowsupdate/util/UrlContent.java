@@ -39,16 +39,31 @@ public class UrlContent {
 			br = new BufferedReader(isr);
 			String buf = null;
 			boolean begin = false;
+			if(beginStr==null||beginStr.isEmpty()){
+				begin = true;
+			}
 			while ((buf = br.readLine()) != null) {
-				if (buf.contains(beginStr)) {
-					begin = true;
+				if(begin){
 					sb.append(buf.trim());
-				} else if (begin && buf.contains(endStr)) {
-					sb.append(buf.trim());
-					break;
-				} else if (begin) {
-					sb.append(buf.trim());
+					if((endStr!=null&&!endStr.isEmpty()) && buf.contains(endStr)){
+						break;
+					}
+				}else{
+					if (buf.contains(beginStr)) {
+						begin = true;
+						sb.append(buf.trim());
+					} 
 				}
+				
+//				if (buf.contains(beginStr)) {
+//					begin = true;
+//					sb.append(buf.trim());
+//				} else if (begin && buf.contains(endStr)) {
+//					sb.append(buf.trim());
+//					break;
+//				} else if (begin) {
+//					sb.append(buf.trim());
+//				}
 			}
 			return sb.toString();
 		} catch (Exception e) {

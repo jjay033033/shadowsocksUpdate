@@ -44,6 +44,21 @@
 			<encryptionBegin>加密方式:</encryptionBegin>
 			<encryptionEnd>&lt;</encryptionEnd>
 		</server>
+		<server>
+			<id>freevpnss</id>
+			<url>https://get.freevpnss.me/</url>
+			<begin>免费SS帐号</begin>
+			<end>商家推荐</end>
+			<type>0</type>
+			<serverIpBegin>服务器地址：</serverIpBegin>
+			<serverIpEnd>&lt;</serverIpEnd>
+			<serverPortBegin>端口：</serverPortBegin>
+			<serverPortEnd>&lt;</serverPortEnd>
+			<passwordBegin>码：</passwordBegin>
+			<passwordEnd>&lt;</passwordEnd>
+			<encryptionBegin>加密方式：</encryptionBegin>
+			<encryptionEnd>&lt;</encryptionEnd>
+		</server>
 	</servers>
 
 

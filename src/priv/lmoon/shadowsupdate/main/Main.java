@@ -39,8 +39,6 @@ public class Main {
 
 	private static final String SLEEP_TIME = "sleepTime";
 
-//	private static final String FIRST_SERVER = "firstServerId";
-
 	public static void main(String[] args) {
 
 		// kill("Shadowsocks.exe");
@@ -50,12 +48,13 @@ public class Main {
 			return;
 		}
 		try {
-//			String firstServer = XmlConfig.getInstance().getValue(FIRST_SERVER);
 			long sleepTime = Long.parseLong(XmlConfig.getInstance().getValue(SLEEP_TIME));
 			WinCmdUtil.restartExe(EXE_PATH);
 			while (true) {
 				List<ConfVo> newList = getConfListFromServer();
 				List<ConfVo> oldList = getConfListFromJson(FileUtil.readFile(PATH_NAME));
+//				System.out.println(newList);
+//				System.out.println(oldList);
 				Map<String, Object> compareMap = ConfListUtil.CompareList(oldList, newList);
 				boolean isChange = (Boolean) compareMap.get("isChange");
 				if (isChange) {
@@ -83,34 +82,6 @@ public class Main {
 		}
 
 	}
-
-	// private static List<ConfVo> getConfList(String firstServer){
-	// List<ConfVo> list = null;
-	// ConfigList c;
-	// if(firstServer == null){
-	// c = ConfigListFactory.getInstance().getFirstConfigList();
-	// }else{
-	// c = ConfigListFactory.getInstance().getConfigListObj(firstServer);
-	// }
-	// if(c!=null){
-	// list = c.getConfigList();
-	// }
-	// if(list==null||list.isEmpty()){
-	// Map<String, ConfigList> cMap =
-	// ConfigListFactory.getInstance().getConfigListMap();
-	// for(Iterator<Entry<String, ConfigList>>
-	// it=cMap.entrySet().iterator();it.hasNext();){
-	// c = it.next().getValue();
-	// if(c!=null){
-	// list = c.getConfigList();
-	// if(list!=null&&!list.isEmpty()){
-	// return list;
-	// }
-	// }
-	// }
-	// }
-	// return list;
-	// }
 
 	private static List<ConfVo> getConfListFromServer() {
 		List<ConfVo> list = new ArrayList<ConfVo>();
@@ -145,29 +116,6 @@ public class Main {
 		JSONObject jo = JSONObject.fromObject(map);
 		return jo.toString();
 	}
-
-	// @SuppressWarnings("unchecked")
-	// public static String getPasswordFromJson(String jsonStr) {
-	// try {
-	// if (jsonStr == null || jsonStr.isEmpty()) {
-	// return null;
-	// }
-	// JSONObject jo = JSONObject.fromObject(jsonStr);
-	// JSONArray confJa = jo.getJSONArray("configs");
-	// if (confJa == null || confJa.isEmpty()) {
-	// return null;
-	// }
-	// List<ConfVo> list = (List<ConfVo>) JSONArray.toCollection(confJa,
-	// ConfVo.class);
-	// ConfVo vo = (ConfVo) list.get(0);
-	// return vo.getPassword();
-	// } catch (Exception e) {
-	// logger.error("getPasswordFromJson:", e);
-	// e.printStackTrace();
-	// return null;
-	// }
-	//
-	// }
 
 	public static List<ConfVo> getConfListFromJson(String jsonStr) {
 		try {
