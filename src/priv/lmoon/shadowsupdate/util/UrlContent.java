@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.net.URLConnection;
 
 import org.apache.log4j.Logger;
 
@@ -32,7 +33,9 @@ public class UrlContent {
 		StringBuffer sb = new StringBuffer();
 		try {
 			URL url = new URL(urlStr);
-			isr = new InputStreamReader(url.openStream(), "utf-8");
+			URLConnection connection = url.openConnection();
+			connection.setRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
+			isr = new InputStreamReader(connection.getInputStream(), "utf-8");
 			br = new BufferedReader(isr);
 			String buf = null;
 			boolean begin = false;

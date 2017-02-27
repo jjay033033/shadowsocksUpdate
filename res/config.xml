@@ -17,8 +17,8 @@
 			<passwordBegin>密码:</passwordBegin>
 			<passwordEnd>&lt;</passwordEnd>
 			<encryptionBegin>加密方式:</encryptionBegin>
-			<encryptionEnd>&lt;</encryptionEnd>			
-		</server>	
+			<encryptionEnd>&lt;</encryptionEnd>
+		</server>
 		<server>
 			<id>shadowsocks8</id>
 			<url>https://www.shadowsocks8.biz/</url>
@@ -27,9 +27,24 @@
 			<type>1</type>
 			<picUrlBegin>&lt;img src=&quot;</picUrlBegin>
 			<picUrlEnd>&quot;</picUrlEnd>
-			<severPicFlag>server</severPicFlag>			
+			<severPicFlag>server</severPicFlag>
+		</server>
+		<server>
+			<id>freessr</id>
+			<url>https://freessr.xyz/</url>
+			<begin>免费shadowsocks账号</begin>
+			<end>SS免费分享站</end>
+			<type>0</type>
+			<serverIpBegin>服务器地址:</serverIpBegin>
+			<serverIpEnd>&lt;</serverIpEnd>
+			<serverPortBegin>端口:</serverPortBegin>
+			<serverPortEnd>&lt;</serverPortEnd>
+			<passwordBegin>密码:</passwordBegin>
+			<passwordEnd>&lt;</passwordEnd>
+			<encryptionBegin>加密方式:</encryptionBegin>
+			<encryptionEnd>&lt;</encryptionEnd>
 		</server>
 	</servers>
-	
+
 
 </configs>
