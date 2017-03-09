@@ -21,7 +21,7 @@
 		</server>
 		<server>
 			<id>shadowsocks8</id>
-			<url>https://www.shadowsocks8.biz/</url>
+			<url>http://ss8.pm/</url>
 			<begin>&lt;section id=&quot;free&quot;</begin>
 			<end>&lt;section id=&quot;sslist&quot;</end>
 			<type>1</type>
