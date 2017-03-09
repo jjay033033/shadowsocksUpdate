@@ -68,7 +68,7 @@ public class UrlContent {
 			return sb.toString();
 		} catch (Exception e) {
 			e.printStackTrace();
-			logger.error("getURLContent:", e);
+			logger.error("getURLContent:"+urlStr, e);
 		} finally {
 			try {
 				if (br != null) {
