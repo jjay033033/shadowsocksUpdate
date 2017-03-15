@@ -20,9 +20,9 @@ import priv.lmoon.shadowsupdate.vo.ServerConfigVO;
  * @date 2017-1-6
  * 
  */
-public class PicConfigList implements ConfigList{
+public class PicConfigListImpl implements ConfigList{
 	
-	private static final Logger logger = Logger.getLogger(PicConfigList.class);
+	private static final Logger logger = Logger.getLogger(PicConfigListImpl.class);
 	
 //	private static final String FREE_URL = "https://www.shadowsocks8.biz/";
 //	private static final String beginStr = "<section id=\"free\"";
@@ -32,7 +32,7 @@ public class PicConfigList implements ConfigList{
 	
 	private ServerConfigVO vo;
 
-	public PicConfigList(ServerConfigVO vo) {
+	public PicConfigListImpl(ServerConfigVO vo) {
 		this.vo = vo;
 	}
 	

@@ -18,9 +18,9 @@ import priv.lmoon.shadowsupdate.vo.ServerConfigVO;
  * @date 2017-1-6
  * 
  */
-public class TextConfigList implements ConfigList {
+public class TextConfigListImpl implements ConfigList {
 	
-	private static final Logger logger = Logger.getLogger(TextConfigList.class);
+	private static final Logger logger = Logger.getLogger(TextConfigListImpl.class);
 
 	// private static final String FREE_URL = "https://www.ishadowsocks.xyz";
 	// private static final String beginStr = "<section id=\"free\">";
@@ -30,7 +30,7 @@ public class TextConfigList implements ConfigList {
 
 	private ServerConfigVO vo;
 
-	public TextConfigList(ServerConfigVO vo) {
+	public TextConfigListImpl(ServerConfigVO vo) {
 		this.vo = vo;
 	}
 

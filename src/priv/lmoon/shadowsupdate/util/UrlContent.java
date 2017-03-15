@@ -11,7 +11,7 @@ import java.net.URLConnection;
 
 import org.apache.log4j.Logger;
 
-import priv.lmoon.shadowsupdate.config.TextConfigList;
+import priv.lmoon.shadowsupdate.config.TextConfigListImpl;
 import priv.lmoon.shadowsupdate.vo.ServerConfigVO;
 
 /**

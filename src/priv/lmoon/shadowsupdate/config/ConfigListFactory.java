@@ -27,10 +27,10 @@ public class ConfigListFactory {
 			ServerConfigVO vo = map.get(key);
 			switch(vo.getType()){
 			case SysConstants.ServerType.TEXT:
-				configMap.put(vo.getId(), new TextConfigList(vo));
+				configMap.put(vo.getId(), new TextConfigListImpl(vo));
 				break;
 			case SysConstants.ServerType.PIC:
-				configMap.put(vo.getId(), new PicConfigList(vo));
+				configMap.put(vo.getId(), new PicConfigListImpl(vo));
 				break;
 			default:
 				break;
