@@ -65,6 +65,7 @@ public class FileUtil {
 			}
 			fos = new FileOutputStream(file);
 			fos.write(content.getBytes("utf-8"));
+			fos.flush();
 		} catch (Exception e) {
 			logger.error("writeFile:", e);
 			e.printStackTrace();

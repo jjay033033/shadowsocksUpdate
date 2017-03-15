@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 import priv.lmoon.shadowsupdate.SysConstants;
-import priv.lmoon.shadowsupdate.vo.ServerConfigVo;
+import priv.lmoon.shadowsupdate.vo.ServerConfigVO;
 
 public class ConfigListFactory {
 	
@@ -20,11 +20,11 @@ public class ConfigListFactory {
 	}
 	
 	private void init(){
-		Map<String,ServerConfigVo> map = XmlConfig.getInstance().getServerConfigMap();
+		Map<String,ServerConfigVO> map = XmlConfig.getInstance().getServerConfigMap();
 		int i = 0;
 		for(Iterator<String> it = map.keySet().iterator();it.hasNext();){
 			String key = it.next();
-			ServerConfigVo vo = map.get(key);
+			ServerConfigVO vo = map.get(key);
 			switch(vo.getType()){
 			case SysConstants.ServerType.TEXT:
 				configMap.put(vo.getId(), new TextConfigList(vo));

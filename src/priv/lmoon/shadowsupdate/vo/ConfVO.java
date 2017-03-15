@@ -1,6 +1,6 @@
 package priv.lmoon.shadowsupdate.vo;
 
-public class ConfVo {
+public class ConfVO {
 	
 	private String server;
 	
@@ -78,7 +78,7 @@ public class ConfVo {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ConfVo other = (ConfVo) obj;
+		ConfVO other = (ConfVO) obj;
 		if (method == null) {
 			if (other.method != null)
 				return false;

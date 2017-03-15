@@ -12,7 +12,7 @@ import java.net.URLConnection;
 import org.apache.log4j.Logger;
 
 import priv.lmoon.shadowsupdate.config.TextConfigList;
-import priv.lmoon.shadowsupdate.vo.ServerConfigVo;
+import priv.lmoon.shadowsupdate.vo.ServerConfigVO;
 
 /**
  * @author guozy
@@ -23,7 +23,7 @@ public class UrlContent {
 	
 	private static final Logger logger = Logger.getLogger(UrlContent.class);
 	
-	public static String getURLContent(ServerConfigVo vo){
+	public static String getURLContent(ServerConfigVO vo){
 		return getURLContent(vo.getUrl(), vo.getBegin(), vo.getEnd());
 	}
 	

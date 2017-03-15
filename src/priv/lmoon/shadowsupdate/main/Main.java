@@ -20,7 +20,7 @@ import priv.lmoon.shadowsupdate.config.XmlConfig;
 import priv.lmoon.shadowsupdate.util.ConfListUtil;
 import priv.lmoon.shadowsupdate.util.FileUtil;
 import priv.lmoon.shadowsupdate.util.WinCmdUtil;
-import priv.lmoon.shadowsupdate.vo.ConfVo;
+import priv.lmoon.shadowsupdate.vo.ConfVO;
 
 public class Main {
 
@@ -51,15 +51,15 @@ public class Main {
 			long sleepTime = Long.parseLong(XmlConfig.getInstance().getValue(SLEEP_TIME));
 			WinCmdUtil.restartExe(EXE_PATH);
 			while (true) {
-				List<ConfVo> newList = getConfListFromServer();
-				List<ConfVo> oldList = getConfListFromJson(FileUtil.readFile(PATH_NAME));
+				List<ConfVO> newList = getConfListFromServer();
+				List<ConfVO> oldList = getConfListFromJson(FileUtil.readFile(PATH_NAME));
 //				System.out.println(newList);
 //				System.out.println(oldList);
 				Map<String, Object> compareMap = ConfListUtil.CompareList(oldList, newList);
 				boolean isChange = (Boolean) compareMap.get("isChange");
 				if (isChange) {
 					logger.debug("password changed!");
-					List<ConfVo> list = (List<ConfVo>) compareMap.get("confList");
+					List<ConfVO> list = (List<ConfVO>) compareMap.get("confList");
 					String content = buildContent(list);
 					FileUtil.writeFile(content, PATH_NAME);
 					QRcodeUtil.createQRCode(list, QRCODE_PATH);
@@ -83,15 +83,15 @@ public class Main {
 
 	}
 
-	private static List<ConfVo> getConfListFromServer() {
-		List<ConfVo> list = new ArrayList<ConfVo>();
+	private static List<ConfVO> getConfListFromServer() {
+		List<ConfVO> list = new ArrayList<ConfVO>();
 		ConfigList c;
 
 		Map<String, ConfigList> cMap = ConfigListFactory.getInstance().getConfigListMap();
 		for (Iterator<Entry<String, ConfigList>> it = cMap.entrySet().iterator(); it.hasNext();) {
 			c = it.next().getValue();
 			if (c != null) {
-				List<ConfVo> cList = c.getConfigList();
+				List<ConfVO> cList = c.getConfigList();
 				if (cList != null && !cList.isEmpty()) {
 					list.addAll(cList);
 				}
@@ -101,7 +101,7 @@ public class Main {
 		return list;
 	}
 
-	public static String buildContent(List<ConfVo> list) {
+	public static String buildContent(List<ConfVO> list) {
 		Map<String, Object> map = new LinkedHashMap<String, Object>();
 		map.put("configs", list);
 		map.put("strategy", "com.shadowsocks.strategy.ha");
@@ -117,7 +117,7 @@ public class Main {
 		return jo.toString();
 	}
 
-	public static List<ConfVo> getConfListFromJson(String jsonStr) {
+	public static List<ConfVO> getConfListFromJson(String jsonStr) {
 		try {
 			if (jsonStr == null || jsonStr.isEmpty()) {
 				return null;
@@ -127,7 +127,7 @@ public class Main {
 			if (confJa == null || confJa.isEmpty()) {
 				return null;
 			}
-			List<ConfVo> list = (List<ConfVo>) JSONArray.toCollection(confJa, ConfVo.class);
+			List<ConfVO> list = (List<ConfVO>) JSONArray.toCollection(confJa, ConfVO.class);
 			return list;
 		} catch (Exception e) {
 			logger.error("getConfListFromJson:", e);

@@ -10,8 +10,8 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
 import priv.lmoon.shadowsupdate.util.UrlContent;
-import priv.lmoon.shadowsupdate.vo.ConfVo;
-import priv.lmoon.shadowsupdate.vo.ServerConfigVo;
+import priv.lmoon.shadowsupdate.vo.ConfVO;
+import priv.lmoon.shadowsupdate.vo.ServerConfigVO;
 
 /**
  * @author guozy
@@ -28,9 +28,9 @@ public class TextConfigList implements ConfigList {
 
 	// private static final String id = "ishadowsocks";
 
-	private ServerConfigVo vo;
+	private ServerConfigVO vo;
 
-	public TextConfigList(ServerConfigVo vo) {
+	public TextConfigList(ServerConfigVO vo) {
 		this.vo = vo;
 	}
 
@@ -40,20 +40,20 @@ public class TextConfigList implements ConfigList {
 	 * @see priv.lmoon.shadowsupdate.config.ConfigList#getConfigList()
 	 */
 	@Override
-	public List<ConfVo> getConfigList() {
+	public List<ConfVO> getConfigList() {
 		// TODO Auto-generated method stub
 		return getConf(UrlContent.getURLContent(vo));
 	}
 
-	private List<ConfVo> getConf(String content) {
+	private List<ConfVO> getConf(String content) {
 //		System.out.println(content);
-		List<ConfVo> list = new ArrayList<ConfVo>();
+		List<ConfVO> list = new ArrayList<ConfVO>();
 		if (StringUtils.isBlank(content)) {
 			return list;
 		}
 		try {
 			while (content.length() > 0) {
-				ConfVo confVo = new ConfVo();
+				ConfVO confVo = new ConfVO();
 
 				int findIdx = content.indexOf(vo.getServerIpBegin());
 

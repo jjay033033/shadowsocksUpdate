@@ -1,6 +1,6 @@
 package priv.lmoon.shadowsupdate.vo;
 
-public class ServerConfigVo {
+public class ServerConfigVO {
 	
 	private String id;
 	

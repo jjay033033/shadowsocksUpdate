@@ -12,8 +12,8 @@ import org.apache.log4j.Logger;
 import priv.lmoon.shadowsupdate.QRCode.Base64Coder;
 import priv.lmoon.shadowsupdate.QRCode.QRcoder;
 import priv.lmoon.shadowsupdate.util.UrlContent;
-import priv.lmoon.shadowsupdate.vo.ConfVo;
-import priv.lmoon.shadowsupdate.vo.ServerConfigVo;
+import priv.lmoon.shadowsupdate.vo.ConfVO;
+import priv.lmoon.shadowsupdate.vo.ServerConfigVO;
 
 /**
  * @author guozy
@@ -30,9 +30,9 @@ public class PicConfigList implements ConfigList{
 
 //	public String id = "shadowsocks8";
 	
-	private ServerConfigVo vo;
+	private ServerConfigVO vo;
 
-	public PicConfigList(ServerConfigVo vo) {
+	public PicConfigList(ServerConfigVO vo) {
 		this.vo = vo;
 	}
 	
@@ -40,13 +40,13 @@ public class PicConfigList implements ConfigList{
 	 * @see priv.lmoon.shadowsupdate.config.ConfigList#getConfigList()
 	 */
 	@Override
-	public List<ConfVo> getConfigList() {
+	public List<ConfVO> getConfigList() {
 		// TODO Auto-generated method stub
 		return getConf(UrlContent.getURLContent(vo));
 	}
 	
-	private List<ConfVo> getConf(String content) {
-		List<ConfVo> list = new ArrayList<ConfVo>();
+	private List<ConfVO> getConf(String content) {
+		List<ConfVO> list = new ArrayList<ConfVO>();
 		if (StringUtils.isBlank(content)) {
 			return list;
 		}
@@ -63,7 +63,7 @@ public class PicConfigList implements ConfigList{
 				
 				String serverStr = content.substring(serverIdx, serverEnd);
 				if(serverStr.contains(vo.getSeverPicFlag())){
-					ConfVo vo = getConfFromStr(Base64Coder.decodeBase64ForSS(QRcoder.decode(getImgUrl(serverStr.trim()))));
+					ConfVO vo = getConfFromStr(Base64Coder.decodeBase64ForSS(QRcoder.decode(getImgUrl(serverStr.trim()))));
 					if(vo!=null){
 						list.add(vo);
 					}
@@ -82,13 +82,13 @@ public class PicConfigList implements ConfigList{
 	}
 	
 	//rc4-md5:71973556@138.68.61.42:23456
-	private ConfVo getConfFromStr(String str){
+	private ConfVO getConfFromStr(String str){
 		try{
 			String[] strs = str.split(":");
 			if(strs.length==3){
 				String[] temp = strs[1].split("@");
 				if(temp.length==2){
-					ConfVo confVo = new ConfVo();
+					ConfVO confVo = new ConfVO();
 					confVo.setMethod(strs[0].trim());
 					confVo.setPassword(temp[0].trim());
 					confVo.setServer(temp[1].trim());

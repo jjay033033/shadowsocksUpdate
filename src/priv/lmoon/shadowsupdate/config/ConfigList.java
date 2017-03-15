@@ -5,7 +5,7 @@ package priv.lmoon.shadowsupdate.config;
 
 import java.util.List;
 
-import priv.lmoon.shadowsupdate.vo.ConfVo;
+import priv.lmoon.shadowsupdate.vo.ConfVO;
 
 /**
  * @author guozy
@@ -14,6 +14,6 @@ import priv.lmoon.shadowsupdate.vo.ConfVo;
  */
 public interface ConfigList {
 	
-	public abstract List<ConfVo> getConfigList();
+	public abstract List<ConfVO> getConfigList();
 
 }

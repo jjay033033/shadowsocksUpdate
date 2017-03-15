@@ -11,7 +11,7 @@ import org.apache.log4j.Logger;
 
 import priv.lmoon.shadowsupdate.SysConstants;
 import priv.lmoon.shadowsupdate.util.XmlMap;
-import priv.lmoon.shadowsupdate.vo.ServerConfigVo;
+import priv.lmoon.shadowsupdate.vo.ServerConfigVO;
 
 public class XmlConfig {
 	
@@ -23,7 +23,7 @@ public class XmlConfig {
 	
 	private Map map;
 	
-	private Map<String,ServerConfigVo> serverMap = new LinkedHashMap<String, ServerConfigVo>();
+	private Map<String,ServerConfigVO> serverMap = new LinkedHashMap<String, ServerConfigVO>();
 	
 	private XmlConfig(){
 		init();
@@ -70,7 +70,7 @@ public class XmlConfig {
 			while (iter.hasNext()) {
 				Map item = (Map) iter.next();
 				if (item != null && item.get("id") != null) {
-					ServerConfigVo vo = new ServerConfigVo();
+					ServerConfigVO vo = new ServerConfigVO();
 					vo.setBegin((String) item.get("begin"));
 					vo.setEnd((String) item.get("end"));
 					vo.setId((String) item.get("id"));
@@ -140,7 +140,7 @@ public class XmlConfig {
 	 * 服务器配置（servers标签下）的map
 	 * @return
 	 */
-	public Map<String, ServerConfigVo> getServerConfigMap(){
+	public Map<String, ServerConfigVO> getServerConfigMap(){
 		return serverMap;
 	}
 
