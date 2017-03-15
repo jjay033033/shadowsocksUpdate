@@ -9,8 +9,8 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
-import priv.lmoon.shadowsupdate.QRCode.Base64Coder;
-import priv.lmoon.shadowsupdate.QRCode.QRcoder;
+import priv.lmoon.shadowsupdate.qrcode.Base64Coder;
+import priv.lmoon.shadowsupdate.qrcode.QRcoder;
 import priv.lmoon.shadowsupdate.util.UrlContent;
 import priv.lmoon.shadowsupdate.vo.ConfVO;
 import priv.lmoon.shadowsupdate.vo.ServerConfigVO;

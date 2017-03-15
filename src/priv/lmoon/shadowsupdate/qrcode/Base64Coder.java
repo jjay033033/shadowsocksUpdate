@@ -1,7 +1,7 @@
 /**
  * 
  */
-package priv.lmoon.shadowsupdate.QRCode;
+package priv.lmoon.shadowsupdate.qrcode;
 
 import java.lang.reflect.Method;
 

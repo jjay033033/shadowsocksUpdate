@@ -13,10 +13,10 @@ import org.apache.log4j.PropertyConfigurator;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-import priv.lmoon.shadowsupdate.QRCode.QRcodeUtil;
 import priv.lmoon.shadowsupdate.config.ConfigList;
 import priv.lmoon.shadowsupdate.config.ConfigListFactory;
 import priv.lmoon.shadowsupdate.config.XmlConfig;
+import priv.lmoon.shadowsupdate.qrcode.QRcodeUtil;
 import priv.lmoon.shadowsupdate.util.ConfListUtil;
 import priv.lmoon.shadowsupdate.util.FileUtil;
 import priv.lmoon.shadowsupdate.util.WinCmdUtil;

@@ -14,6 +14,6 @@ import priv.lmoon.shadowsupdate.vo.ConfVO;
  */
 public interface ConfigList {
 	
-	public abstract List<ConfVO> getConfigList();
+	List<ConfVO> getConfigList();
 
 }
