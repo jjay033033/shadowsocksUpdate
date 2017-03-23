@@ -1,3 +1,3 @@
 @echo off
-start javaw -jar shadowsocksUpdate.jar
+start javaw -jar -Xmx100m shadowsocksUpdate.jar
 exit
