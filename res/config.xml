@@ -7,16 +7,16 @@
 		<server>
 			<id>ishadowsocks</id>
 			<url>http://isx.yt</url>
-			<begin>&lt;section id=&quot;free&quot;&gt;</begin>
-			<end>&lt;/section&gt;</end>
+			<begin>id=&quot;portfolio&quot;</begin>
+			<end>id=&quot;footer&quot;</end>
 			<type>0</type>
-			<serverIpBegin>服务器地址:</serverIpBegin>
+			<serverIpBegin>IP Address:&lt;span[^&gt;]*&gt;</serverIpBegin>
 			<serverIpEnd>&lt;</serverIpEnd>
-			<serverPortBegin>端口:</serverPortBegin>
+			<serverPortBegin>Port：</serverPortBegin>
 			<serverPortEnd>&lt;</serverPortEnd>
-			<passwordBegin>密码:</passwordBegin>
+			<passwordBegin>Password:&lt;span[^&gt;]*&gt;</passwordBegin>
 			<passwordEnd>&lt;</passwordEnd>
-			<encryptionBegin>加密方式:</encryptionBegin>
+			<encryptionBegin>Method:</encryptionBegin>
 			<encryptionEnd>&lt;</encryptionEnd>
 		</server>
 		<server>

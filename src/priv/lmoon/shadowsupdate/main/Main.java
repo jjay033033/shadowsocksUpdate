@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -82,6 +81,10 @@ public class Main {
 		}
 
 	}
+	
+//	public static void main(String[] args) {
+//		System.out.println(getConfListFromServer());
+//	}
 
 	private static List<ConfVO> getConfListFromServer() {
 		List<ConfVO> list = new ArrayList<ConfVO>();
