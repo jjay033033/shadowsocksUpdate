@@ -4,3 +4,5 @@ res/gui-config.json
 log/
 bin/
 output/
+/.classpath
+/.project
