@@ -21,7 +21,7 @@
 		</server>
 		<server>
 			<id>shadowsocks8</id>
-			<url>http://abc.shadowsocks8.org/</url>
+			<url>http://my.shadowsocks8.org/</url>
 			<begin>&lt;section id=&quot;free&quot;</begin>
 			<end>&lt;section id=&quot;sslist&quot;</end>
 			<type>1</type>
