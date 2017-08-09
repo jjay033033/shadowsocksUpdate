@@ -35,6 +35,11 @@ public class UrlContent {
 			URL url = new URL(urlStr);
 			URLConnection connection = url.openConnection();
 			connection.setRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
+//			connection.setInstanceFollowRedirects(true);  
+//			connection.setRequestMethod("GET"); 
+//			connection.connect();  
+//			int code = connection.getResponseCode();
+//            System.out.println(connection.getURL());
 			isr = new InputStreamReader(connection.getInputStream(), "utf-8");
 			br = new BufferedReader(isr);
 			String buf = null;
