@@ -58,7 +58,6 @@ public class UrlContent {
 				begin = true;
 			}
 			while ((buf = br.readLine()) != null) {
-				System.out.println(buf);
 				if(begin){
 					sb.append(buf.trim());
 					if((endStr!=null&&!endStr.isEmpty()) && buf.contains(endStr)){
