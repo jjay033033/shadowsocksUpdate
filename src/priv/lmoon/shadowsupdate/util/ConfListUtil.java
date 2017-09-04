@@ -10,7 +10,6 @@ import priv.lmoon.shadowsupdate.vo.ConfVO;
 public class ConfListUtil {
 
 	public static Map<String, Object> CompareList(List<ConfVO> oldList, List<ConfVO> newList) {
-		// List<ConfVo> list = new ArrayList<ConfVo>();
 		boolean isChange = false;
 		if (newList == null || newList.isEmpty()) {
 
@@ -30,9 +29,9 @@ public class ConfListUtil {
 			for (ConfVO oVo : oldList) {
 				Map<String, ConfVO> map = nMap.get(oVo.getRemarks());
 				if (map == null) {
-					if(XmlConfig.getInstance().getServerConfigMap().containsKey(oVo.getRemarks())){
-						newList.add(oVo);
-					}
+//					if(XmlConfig.getInstance().getServerConfigMap().containsKey(oVo.getRemarks())){
+//						newList.add(oVo);
+//					}
 				} else {
 					ConfVO nVo = map.get(oVo.getServer());
 					if (nVo == null) {

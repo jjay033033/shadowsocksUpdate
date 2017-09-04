@@ -21,7 +21,7 @@
 		</server>
 		<server>
 			<id>shadowsocks8</id>
-			<url>http://ss8.6gg6.net/</url>
+			<url>https://en.ss8.fun/</url>
 			<begin>&lt;section id=&quot;free&quot;</begin>
 			<end>&lt;section id=&quot;sslist&quot;</end>
 			<type>1</type>
@@ -44,7 +44,7 @@
 			<encryptionBegin>加密方式:</encryptionBegin>
 			<encryptionEnd>&lt;</encryptionEnd>
 		</server> -->
-		<server>
+		<!-- <server>
 			<id>freevpnss</id>
 			<url>http://jn9.org/</url>
 			<begin>免费SS帐号</begin>
@@ -58,7 +58,7 @@
 			<passwordEnd>&lt;</passwordEnd>
 			<encryptionBegin>加密方式：</encryptionBegin>
 			<encryptionEnd>&lt;</encryptionEnd>
-		</server>
+		</server>-->
 	</servers>
 
 
