@@ -7,6 +7,6 @@ public class SysConstants {
 		public static final int PIC = 1;
 	}
 	
-	
+	public static final String CONFIG_PATH = "res/config.xml";
 
 }

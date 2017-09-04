@@ -17,8 +17,6 @@ public class XmlConfig {
 	
 	private static final Logger logger = Logger.getLogger(XmlConfig.class);
 	
-	private static final String path = "res/config.xml";
-	
 	private static XmlConfig xmlConfig;
 	
 	private Map map;
@@ -31,7 +29,7 @@ public class XmlConfig {
 	
 	private void init(){
 		try {
-			XmlMap xm = new XmlMap(path);
+			XmlMap xm = new XmlMap(SysConstants.CONFIG_PATH);
 			map = xm.getConfigMap();
 			if (map == null || map.isEmpty()) {
 				throw new FileNotFoundException();
@@ -106,6 +104,10 @@ public class XmlConfig {
 			xmlConfig = new XmlConfig();
 		}
 		return xmlConfig;
+	}
+	
+	public static void resetInstance(){
+		xmlConfig = null;
 	}
 	
 //	public ServerConfigVo getServerConfigVo(String id){

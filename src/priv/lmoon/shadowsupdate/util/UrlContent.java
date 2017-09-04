@@ -11,8 +11,11 @@ import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
+import priv.lmoon.shadowsupdate.SysConstants;
+import priv.lmoon.shadowsupdate.config.XmlConfig;
 import priv.lmoon.shadowsupdate.vo.ServerConfigVO;
 
 /**
@@ -42,8 +45,14 @@ public class UrlContent {
 			int code = connection.getResponseCode();
 			if(code==301){				
 				connection.disconnect();
-				urlStr = connection.getHeaderField("Location"); 
-				url = new URL(urlStr);
+				String urlStrNew = connection.getHeaderField("Location"); 
+				if(StringUtil.isNullOrBlank(urlStrNew)){
+					return null;
+				}
+				FileUtil.writeFileReplaceWord(SysConstants.CONFIG_PATH, urlStr, urlStrNew);
+				XmlConfig.resetInstance();
+				logger.info("'config.xml' changed!: "+urlStr+" to "+urlStrNew);
+				url = new URL(urlStrNew);
 				connection = (HttpURLConnection)url.openConnection();
 				connection.setRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
 				connection.setInstanceFollowRedirects(true);   

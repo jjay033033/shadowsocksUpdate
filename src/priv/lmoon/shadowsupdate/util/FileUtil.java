@@ -31,6 +31,7 @@ public class FileUtil {
 			String buf = null;
 			while ((buf = br.readLine()) != null) {
 				sb.append(buf);
+				sb.append("\n");
 			}
 		} catch (Exception e) {
 			logger.error("readFile:", e);
@@ -79,5 +80,20 @@ public class FileUtil {
 			}
 		}
 	}
+	
+	public static void writeFileReplaceWord(String pathname,String oldWord,String newWord) {
+		String oldContent = readFile(pathname);
+		String newContent = oldContent.replace(oldWord, newWord);
+		writeFile(newContent, pathname);
+	}
 
+	public static void main(String[] args) {
+//		StringBuffer a = new StringBuffer("aeb");
+//		a.append("\n");
+//		a.append("ttt");
+		String b = readFile("tt.txt");
+		System.out.println(b);
+		writeFile(b, "tt.txt");
+	}
+	
 }
