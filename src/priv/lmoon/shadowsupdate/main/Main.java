@@ -52,8 +52,6 @@ public class Main {
 			while (true) {
 				List<ConfVO> newList = getConfListFromServer();
 				List<ConfVO> oldList = getConfListFromJson(FileUtil.readFile(PATH_NAME));
-//				System.out.println(newList);
-//				System.out.println(oldList);
 				Map<String, Object> compareMap = ConfListUtil.CompareList(oldList, newList);
 				boolean isChange = (Boolean) compareMap.get("isChange");
 				if (isChange) {

@@ -6,12 +6,13 @@ package priv.lmoon.shadowsupdate.util;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import priv.lmoon.shadowsupdate.config.TextConfigListImpl;
 import priv.lmoon.shadowsupdate.vo.ServerConfigVO;
 
 /**
@@ -33,13 +34,22 @@ public class UrlContent {
 		StringBuffer sb = new StringBuffer();
 		try {
 			URL url = new URL(urlStr);
-			URLConnection connection = url.openConnection();
+			HttpURLConnection connection = (HttpURLConnection)url.openConnection();
 			connection.setRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
-//			connection.setInstanceFollowRedirects(true);  
+			connection.setInstanceFollowRedirects(true);  
 //			connection.setRequestMethod("GET"); 
-//			connection.connect();  
-//			int code = connection.getResponseCode();
-//            System.out.println(connection.getURL());
+			connection.connect();  
+			int code = connection.getResponseCode();
+			if(code==301){				
+				connection.disconnect();
+				urlStr = connection.getHeaderField("Location"); 
+				url = new URL(urlStr);
+				connection = (HttpURLConnection)url.openConnection();
+				connection.setRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
+				connection.setInstanceFollowRedirects(true);   
+				connection.connect();
+			}
+            
 			isr = new InputStreamReader(connection.getInputStream(), "utf-8");
 			br = new BufferedReader(isr);
 			String buf = null;
@@ -48,6 +58,7 @@ public class UrlContent {
 				begin = true;
 			}
 			while ((buf = br.readLine()) != null) {
+				System.out.println(buf);
 				if(begin){
 					sb.append(buf.trim());
 					if((endStr!=null&&!endStr.isEmpty()) && buf.contains(endStr)){
@@ -59,16 +70,6 @@ public class UrlContent {
 						sb.append(buf.trim());
 					} 
 				}
-				
-//				if (buf.contains(beginStr)) {
-//					begin = true;
-//					sb.append(buf.trim());
-//				} else if (begin && buf.contains(endStr)) {
-//					sb.append(buf.trim());
-//					break;
-//				} else if (begin) {
-//					sb.append(buf.trim());
-//				}
 			}
 			return sb.toString();
 		} catch (Exception e) {
