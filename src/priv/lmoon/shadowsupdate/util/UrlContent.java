@@ -28,34 +28,38 @@ public class UrlContent {
 	private static final Logger logger = Logger.getLogger(UrlContent.class);
 	
 	public static String getURLContent(ServerConfigVO vo){
-		return getURLContent(vo.getUrl(), vo.getBegin(), vo.getEnd());
+		return getURLContent(vo.getUrl(), vo.getBegin(), vo.getEnd(),new UrlHandler() {
+			
+			@Override
+			public void changeUrl(String oldUrl, String newUrl) {
+				FileUtil.writeFileReplaceWord(SysConstants.CONFIG_PATH, oldUrl, newUrl);
+				XmlConfig.resetInstance();
+				logger.info("'config.xml' changed!: "+oldUrl+" to "+newUrl);
+			}
+		});
 	}
 	
-	private static String getURLContent(String urlStr,String beginStr,String endStr) {
+	private static String getURLContent(String urlStr,String beginStr,String endStr,UrlHandler urlHandler) {
 		InputStreamReader isr = null;
 		BufferedReader br = null;
 		StringBuffer sb = new StringBuffer();
 		try {
 			URL url = new URL(urlStr);
 			HttpURLConnection connection = (HttpURLConnection)url.openConnection();
-			connection.setRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
-			connection.setInstanceFollowRedirects(true);  
-//			connection.setRequestMethod("GET"); 
+			setConnectionProperties(connection);
 			connection.connect();  
 			int code = connection.getResponseCode();
+			//301重定向
 			if(code==301){				
 				connection.disconnect();
 				String urlStrNew = connection.getHeaderField("Location"); 
 				if(StringUtil.isNullOrBlank(urlStrNew)){
 					return null;
 				}
-				FileUtil.writeFileReplaceWord(SysConstants.CONFIG_PATH, urlStr, urlStrNew);
-				XmlConfig.resetInstance();
-				logger.info("'config.xml' changed!: "+urlStr+" to "+urlStrNew);
+				urlHandler.changeUrl(urlStr, urlStrNew);				
 				url = new URL(urlStrNew);
 				connection = (HttpURLConnection)url.openConnection();
-				connection.setRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
-				connection.setInstanceFollowRedirects(true);   
+				setConnectionProperties(connection);
 				connection.connect();
 			}
             
@@ -96,6 +100,12 @@ public class UrlContent {
 			}
 		}
 		return null;
+	}
+	
+	private static void setConnectionProperties(HttpURLConnection conn){
+		conn.setRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
+		conn.setInstanceFollowRedirects(true);   
+//		connection.setRequestMethod("GET"); 
 	}
 
 }
