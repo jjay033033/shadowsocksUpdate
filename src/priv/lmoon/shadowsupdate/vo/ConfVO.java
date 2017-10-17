@@ -72,35 +72,47 @@ public class ConfVO {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
+		}
 		ConfVO other = (ConfVO) obj;
 		if (method == null) {
-			if (other.method != null)
+			if (other.method != null) {
 				return false;
-		} else if (!method.equals(other.method))
+			}
+		} else if (!method.equals(other.method)) {
 			return false;
+		}
 		if (password == null) {
-			if (other.password != null)
+			if (other.password != null) {
 				return false;
-		} else if (!password.equals(other.password))
+			}
+		} else if (!password.equals(other.password)) {
 			return false;
+		}
 		if (remarks == null) {
-			if (other.remarks != null)
+			if (other.remarks != null) {
 				return false;
-		} else if (!remarks.equals(other.remarks))
+			}
+		} else if (!remarks.equals(other.remarks)) {
 			return false;
+		}
 		if (server == null) {
-			if (other.server != null)
+			if (other.server != null) {
 				return false;
-		} else if (!server.equals(other.server))
+			}
+		} else if (!server.equals(other.server)) {
 			return false;
-		if (server_port != other.server_port)
+		}
+		if (server_port != other.server_port) {
 			return false;
+		}
 		return true;
 	}
 	

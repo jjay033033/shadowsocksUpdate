@@ -230,7 +230,8 @@ public class XmlUtil {
     		this.inc = inc;
     	}
 
-    	public int compare(Object o1, Object o2) {
+    	@Override
+		public int compare(Object o1, Object o2) {
     		String f1 = (String)((Map)o1).get(fieldName);
     		String f2 = (String)((Map)o2).get(fieldName);
     		int if1 = 0;
@@ -272,7 +273,8 @@ public class XmlUtil {
     		this.inc = inc;
     	}
 
-    	public int compare(Object o1, Object o2) {
+    	@Override
+		public int compare(Object o1, Object o2) {
     		String f1 = (String)((Map)o1).get(fieldName);
     		String f2 = (String)((Map)o2).get(fieldName);
     		int result = f1.compareToIgnoreCase(f2);
