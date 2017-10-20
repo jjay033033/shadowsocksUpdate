@@ -37,7 +37,7 @@ public class QRcodeUtil {
 			StringBuffer sb = new StringBuffer();
 			sb.append(vo.getMethod()).append(":").append(vo.getPassword())
 					.append("@").append(vo.getServer()).append(":")
-					.append(vo.getServer_port());
+					.append(vo.getServerPort());
 			rList.add(sb.toString());
 		}
 		return rList;

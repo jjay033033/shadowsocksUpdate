@@ -52,7 +52,7 @@ public class Main {
 			while (true) {
 				List<ConfVO> newList = getConfListFromServer();
 				List<ConfVO> oldList = getConfListFromJson(FileUtil.readFile(PATH_NAME));
-				Map<String, Object> compareMap = ConfListUtil.CompareList(oldList, newList);
+				Map<String, Object> compareMap = ConfListUtil.compareList(oldList, newList);
 				boolean isChange = (Boolean) compareMap.get("isChange");
 				if (isChange) {
 					logger.debug("password changed!");
