@@ -12,7 +12,7 @@
 			<type>0</type>
 			<serverIpBegin>IP Address:&lt;span[^&gt;]*&gt;</serverIpBegin>
 			<serverIpEnd>&lt;</serverIpEnd>
-			<serverPortBegin>Port：</serverPortBegin>
+			<serverPortBegin>Port:&lt;span[^&gt;]*&gt;</serverPortBegin>
 			<serverPortEnd>&lt;</serverPortEnd>
 			<passwordBegin>Password:&lt;span[^&gt;]*&gt;</passwordBegin>
 			<passwordEnd>&lt;</passwordEnd>
