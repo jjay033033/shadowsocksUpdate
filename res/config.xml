@@ -6,7 +6,7 @@
 	<servers>
 		<server>
 			<id>ishadowsocks</id>
-			<url>http://isx.yt</url>
+			<url>https://go.ishadowx.net/</url>
 			<begin>id=&quot;portfolio&quot;</begin>
 			<end>id=&quot;footer&quot;</end>
 			<type>0</type>
@@ -25,7 +25,7 @@
 			<begin>&lt;section id=&quot;free&quot;</begin>
 			<end>&lt;section id=&quot;sslist&quot;</end>
 			<type>1</type>
-			<picUrlBegin>&lt;img src=&quot;</picUrlBegin>
+			<picUrlBegin>href=&quot;</picUrlBegin>
 			<picUrlEnd>&quot;</picUrlEnd>
 			<severPicFlag>server</severPicFlag>
 		</server>
