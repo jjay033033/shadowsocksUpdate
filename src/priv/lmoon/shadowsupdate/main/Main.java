@@ -50,6 +50,9 @@ public class Main {
 			long sleepTime = Long.parseLong(XmlConfig.getInstance().getValue(SLEEP_TIME));
 			WinCmdUtil.restartExe(EXE_PATH);
 			while (true) {
+				if (!WinCmdUtil.isExistProcess()) {
+					break;
+				}
 				List<ConfVO> newList = getConfListFromServer();
 				List<ConfVO> oldList = getConfListFromJson(FileUtil.readFile(PATH_NAME));
 				Map<String, Object> compareMap = ConfListUtil.compareList(oldList, newList);
@@ -65,9 +68,6 @@ public class Main {
 					logger.debug("password ok!");
 				}
 
-				if (!WinCmdUtil.isExistProcess()) {
-					break;
-				}
 				try {
 					Thread.sleep(sleepTime);
 				} catch (InterruptedException e) {

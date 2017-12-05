@@ -4,7 +4,7 @@ public class ConfVO {
 	
 	private String server;
 	
-	private int serverPort;
+	private int server_port;
 	
 	private String password;
 	
@@ -21,11 +21,11 @@ public class ConfVO {
 	}
 
 	public int getServerPort() {
-		return serverPort;
+		return server_port;
 	}
 
-	public void setServerPort(int serverPort) {
-		this.serverPort = serverPort;
+	public void setServerPort(int server_port) {
+		this.server_port = server_port;
 	}
 
 	public String getPassword() {
@@ -54,7 +54,7 @@ public class ConfVO {
 
 	@Override
 	public String toString() {
-		return "ConfVo [server=" + server + ", server_port=" + serverPort + ", password=" + password + ", method="
+		return "ConfVo [server=" + server + ", server_port=" + server_port + ", password=" + password + ", method="
 				+ method + ", remarks=" + remarks + "]";
 	}
 
@@ -66,7 +66,7 @@ public class ConfVO {
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((remarks == null) ? 0 : remarks.hashCode());
 		result = prime * result + ((server == null) ? 0 : server.hashCode());
-		result = prime * result + serverPort;
+		result = prime * result + server_port;
 		return result;
 	}
 
@@ -110,7 +110,7 @@ public class ConfVO {
 		} else if (!server.equals(other.server)) {
 			return false;
 		}
-		if (serverPort != other.serverPort) {
+		if (server_port != other.server_port) {
 			return false;
 		}
 		return true;
