@@ -20,11 +20,11 @@ public class ConfVO {
 		this.server = server;
 	}
 
-	public int getServerPort() {
+	public int getServer_port() {
 		return server_port;
 	}
 
-	public void setServerPort(int server_port) {
+	public void setServer_port(int server_port) {
 		this.server_port = server_port;
 	}
 

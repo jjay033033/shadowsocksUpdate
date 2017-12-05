@@ -92,7 +92,7 @@ public class PicConfigListImpl implements ConfigList{
 					confVo.setMethod(strs[0].trim());
 					confVo.setPassword(temp[0].trim());
 					confVo.setServer(temp[1].trim());
-					confVo.setServerPort(Integer.parseInt(strs[2].trim()));
+					confVo.setServer_port(Integer.parseInt(strs[2].trim()));
 					confVo.setRemarks(vo.getId());
 					return confVo;
 				}
