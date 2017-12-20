@@ -21,7 +21,7 @@ import priv.lmoon.shadowsupdate.vo.ServerConfigVO;
  * 
  */
 public class TextConfigListImpl implements ConfigList {
-	
+
 	private static final Logger logger = Logger.getLogger(TextConfigListImpl.class);
 
 	// private static final String FREE_URL = "https://www.ishadowsocks.xyz";
@@ -48,7 +48,7 @@ public class TextConfigListImpl implements ConfigList {
 	}
 
 	private List<ConfVO> getConf(String content) {
-//		System.out.println(content);
+		// System.out.println(content);
 		List<ConfVO> list = new ArrayList<ConfVO>();
 		if (StringUtils.isBlank(content)) {
 			return list;
@@ -57,26 +57,33 @@ public class TextConfigListImpl implements ConfigList {
 			while (content.length() > 0) {
 				ConfVO confVo = new ConfVO();
 
-//				int findIdx = content.indexOf(vo.getServerIpBegin());
+				// int findIdx = content.indexOf(vo.getServerIpBegin());
 				int serverIpIdx = indexOfRegex(content, vo.getServerIpBegin());
 
 				if (serverIpIdx == -1) {
 					break;
 				}
-				
-//				int serverIpIdx = findIdx + vo.getServerIpBegin().length();
-//				int serverIpEndIds = content.indexOf(vo.getServerIpEnd(), serverIpIdx);
+
+				// int serverIpIdx = findIdx + vo.getServerIpBegin().length();
+				// int serverIpEndIds = content.indexOf(vo.getServerIpEnd(),
+				// serverIpIdx);
 				int serverIpEndIds = content.indexOf(vo.getServerIpEnd(), serverIpIdx);
 
-//				int serverPortIdx = content.indexOf(vo.getServerPortBegin()) + vo.getServerPortBegin().length();
-//				int serverPortEndIdx = content.indexOf(vo.getServerPortEnd(), serverPortIdx);
-//
-//				int passwordIdx = content.indexOf(vo.getPasswordBegin()) + vo.getPasswordBegin().length();
-//				int passwordEndIdx = content.indexOf(vo.getPasswordEnd(), passwordIdx);
-//
-//				int encryptionIdx = content.indexOf(vo.getEncryptionBegin()) + vo.getEncryptionBegin().length();
-//				int encryptionEndIdx = content.indexOf(vo.getEncryptionEnd(), encryptionIdx);
-				
+				// int serverPortIdx = content.indexOf(vo.getServerPortBegin())
+				// + vo.getServerPortBegin().length();
+				// int serverPortEndIdx = content.indexOf(vo.getServerPortEnd(),
+				// serverPortIdx);
+				//
+				// int passwordIdx = content.indexOf(vo.getPasswordBegin()) +
+				// vo.getPasswordBegin().length();
+				// int passwordEndIdx = content.indexOf(vo.getPasswordEnd(),
+				// passwordIdx);
+				//
+				// int encryptionIdx = content.indexOf(vo.getEncryptionBegin())
+				// + vo.getEncryptionBegin().length();
+				// int encryptionEndIdx = content.indexOf(vo.getEncryptionEnd(),
+				// encryptionIdx);
+
 				int serverPortIdx = indexOfRegex(content, vo.getServerPortBegin());
 				int serverPortEndIdx = content.indexOf(vo.getServerPortEnd(), serverPortIdx);
 
@@ -87,12 +94,15 @@ public class TextConfigListImpl implements ConfigList {
 				int encryptionEndIdx = content.indexOf(vo.getEncryptionEnd(), encryptionIdx);
 
 				confVo.setServer(content.substring(serverIpIdx, serverIpEndIds));
-				confVo.setServer_port(Integer.parseInt(content.substring(serverPortIdx, serverPortEndIdx)));
+				String serverPort = content.substring(serverPortIdx, serverPortEndIdx);
+				confVo.setServer_port(StringUtils.isBlank(serverPort) ? 0 : Integer.parseInt(serverPort));
 				confVo.setPassword(content.substring(passwordIdx, passwordEndIdx));
 				confVo.setMethod(content.substring(encryptionIdx, encryptionEndIdx));
 				confVo.setRemarks(vo.getId());
-
-				list.add(confVo);
+				if (StringUtils.isNotBlank(confVo.getMethod()) && StringUtils.isNotBlank(confVo.getPassword())
+						&& StringUtils.isNotBlank(confVo.getServer()) && confVo.getServer_port() != 0) {
+					list.add(confVo);
+				}
 				content = content.substring(encryptionEndIdx);
 			}
 		} catch (Exception e) {
@@ -104,22 +114,23 @@ public class TextConfigListImpl implements ConfigList {
 
 		return list;
 	}
-	
-	private static int indexOfRegex(String input,String regex){
+
+	private static int indexOfRegex(String input, String regex) {
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(input);
-		if(m.find()){
+		if (m.find()) {
 			return m.end();
 		}
 		return -1;
 	}
 
-	 public static void main(String[] args) {
-//	 System.out.println(new TextConfigList("ishadowsocks").getConfigList());
-		 String c = "This software supported on most common devices like Windows/iPhone/iPad/Android/Macbook. There are only two steps to get it working. First, download and install it. Second, open it and scan QR image. Servers will be configured automatically. Then surfing any websites you like";
-		 System.out.println(c.indexOf("it"));
-		 System.out.println(indexOfRegex(c, "it"));
-		 
-	 }
+	public static void main(String[] args) {
+		// System.out.println(new
+		// TextConfigList("ishadowsocks").getConfigList());
+		String c = "This software supported on most common devices like Windows/iPhone/iPad/Android/Macbook. There are only two steps to get it working. First, download and install it. Second, open it and scan QR image. Servers will be configured automatically. Then surfing any websites you like";
+		System.out.println(c.indexOf("it"));
+		System.out.println(indexOfRegex(c, "it"));
+
+	}
 
 }
