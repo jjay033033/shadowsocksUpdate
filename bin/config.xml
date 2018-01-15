@@ -6,7 +6,7 @@
 	<servers>
 		<server>
 			<id>ishadowsocks</id>
-			<url>https://go.ishadowx.net/</url>
+			<url>https://global.ishadowx.net/</url>
 			<begin>id=&quot;portfolio&quot;</begin>
 			<end>id=&quot;footer&quot;</end>
 			<type>0</type>
