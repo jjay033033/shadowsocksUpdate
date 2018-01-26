@@ -8,10 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.List;
-import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
 import priv.lmoon.shadowsupdate.SysConstants;
@@ -26,6 +23,8 @@ import priv.lmoon.shadowsupdate.vo.ServerConfigVO;
 public class UrlContent {
 	
 	private static final Logger logger = Logger.getLogger(UrlContent.class);
+	
+	private static final int CONNECT_TIME_OUT = 3000;
 	
 	public static String getURLContent(ServerConfigVO vo){
 		return getURLContent(vo.getUrl(), vo.getBegin(), vo.getEnd(),new UrlHandler() {
@@ -104,7 +103,8 @@ public class UrlContent {
 	
 	private static void setConnectionProperties(HttpURLConnection conn){
 		conn.setRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
-		conn.setInstanceFollowRedirects(true);   
+		conn.setInstanceFollowRedirects(true);  		
+		conn.setConnectTimeout(CONNECT_TIME_OUT);
 //		connection.setRequestMethod("GET"); 
 	}
 
